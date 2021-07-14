@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		29A117D9269CE9B700702878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117D8269CE9B700702878 /* AppDelegate.m */; };
+		29A117DC269CE9B700702878 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117DB269CE9B700702878 /* SceneDelegate.m */; };
+		29A117E2269CE9B700702878 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29A117E0269CE9B700702878 /* Main.storyboard */; };
+		29A117E4269CE9B800702878 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29A117E3269CE9B800702878 /* Assets.xcassets */; };
+		29A117E7269CE9B800702878 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29A117E5269CE9B800702878 /* LaunchScreen.storyboard */; };
+		29A117EA269CE9B800702878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117E9269CE9B800702878 /* main.m */; };
+		29A117F4269CE9B800702878 /* Event_Locator_APPTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117F3269CE9B800702878 /* Event_Locator_APPTests.m */; };
+		29A117FF269CE9B800702878 /* Event_Locator_APPUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117FE269CE9B800702878 /* Event_Locator_APPUITests.m */; };
+		29A11811269E17C900702878 /* FeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11810269E17C900702878 /* FeedCell.m */; };
+		29A11817269E188100702878 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11816269E188000702878 /* FeedViewController.m */; };
+		29A1181A269E1C5900702878 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11819269E1C5900702878 /* ChatViewController.m */; };
+		29A11820269E1CA900702878 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A1181F269E1CA900702878 /* ChatCell.m */; };
+		29A11823269E617900702878 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11822269E617900702878 /* LoginViewController.m */; };
+		5A6A08839B6926C299C1CD0C /* Pods_Event_Locator_APP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */; };
+		94A4764CEFE6D523EAFF7EE9 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */; };
+		A121C492F906336BA5D36954 /* Pods_Event_Locator_APPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		29A117F0269CE9B800702878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29A117CC269CE9B700702878 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29A117D3269CE9B700702878;
+			remoteInfo = "Event Locator APP";
+		};
+		29A117FB269CE9B800702878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29A117CC269CE9B700702878 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29A117D3269CE9B700702878;
+			remoteInfo = "Event Locator APP";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1711238F4B69BD0E7D9CF938 /* Pods-Event Locator APPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APPTests.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APPTests/Pods-Event Locator APPTests.release.xcconfig"; sourceTree = "<group>"; };
+		20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_Locator_APPTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A117D4269CE9B700702878 /* Event Locator APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Locator APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A117D7269CE9B700702878 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		29A117D8269CE9B700702878 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		29A117DA269CE9B700702878 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		29A117DB269CE9B700702878 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		29A117E1269CE9B700702878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		29A117E3269CE9B800702878 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29A117E6269CE9B800702878 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		29A117E8269CE9B800702878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29A117E9269CE9B800702878 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29A117EF269CE9B800702878 /* Event Locator APPTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event Locator APPTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A117F3269CE9B800702878 /* Event_Locator_APPTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event_Locator_APPTests.m; sourceTree = "<group>"; };
+		29A117F5269CE9B800702878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29A117FA269CE9B800702878 /* Event Locator APPUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Event Locator APPUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29A117FE269CE9B800702878 /* Event_Locator_APPUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event_Locator_APPUITests.m; sourceTree = "<group>"; };
+		29A11800269CE9B800702878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29A1180F269E17C900702878 /* FeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedCell.h; sourceTree = "<group>"; };
+		29A11810269E17C900702878 /* FeedCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedCell.m; sourceTree = "<group>"; };
+		29A11815269E188000702878 /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		29A11816269E188000702878 /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		29A11818269E1C5900702878 /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		29A11819269E1C5900702878 /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		29A1181E269E1CA900702878 /* ChatCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatCell.h; sourceTree = "<group>"; };
+		29A1181F269E1CA900702878 /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
+		29A11821269E617900702878 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		29A11822269E617900702878 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_Locator_APP_Event_Locator_APPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		836A9AD1E9282490D9B8E7EC /* Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; sourceTree = "<group>"; };
+		85021AF8616A324979041AC1 /* Pods-Event Locator APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP.release.xcconfig"; sourceTree = "<group>"; };
+		AEF945DECEA29C22ABBB8C57 /* Pods-Event Locator APP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP.debug.xcconfig"; path = "Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP.debug.xcconfig"; sourceTree = "<group>"; };
+		F1B95478BEAC58888C909C59 /* Pods-Event Locator APP-Event Locator APPUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP-Event Locator APPUITests.debug.xcconfig"; path = "Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F60D3AB841CD86D805820158 /* Pods-Event Locator APPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APPTests.debug.xcconfig"; path = "Target Support Files/Pods-Event Locator APPTests/Pods-Event Locator APPTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_Locator_APP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		29A117D1269CE9B700702878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A6A08839B6926C299C1CD0C /* Pods_Event_Locator_APP.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117EC269CE9B800702878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A121C492F906336BA5D36954 /* Pods_Event_Locator_APPTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117F7269CE9B800702878 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A4764CEFE6D523EAFF7EE9 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28DC3C8EE76F687FFCFF4BF8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEF945DECEA29C22ABBB8C57 /* Pods-Event Locator APP.debug.xcconfig */,
+				85021AF8616A324979041AC1 /* Pods-Event Locator APP.release.xcconfig */,
+				F1B95478BEAC58888C909C59 /* Pods-Event Locator APP-Event Locator APPUITests.debug.xcconfig */,
+				836A9AD1E9282490D9B8E7EC /* Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig */,
+				F60D3AB841CD86D805820158 /* Pods-Event Locator APPTests.debug.xcconfig */,
+				1711238F4B69BD0E7D9CF938 /* Pods-Event Locator APPTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		29A117CB269CE9B700702878 = {
+			isa = PBXGroup;
+			children = (
+				29A117D6269CE9B700702878 /* Event Locator APP */,
+				29A117F2269CE9B800702878 /* Event Locator APPTests */,
+				29A117FD269CE9B800702878 /* Event Locator APPUITests */,
+				29A117D5269CE9B700702878 /* Products */,
+				28DC3C8EE76F687FFCFF4BF8 /* Pods */,
+				BFB56A13BCEBE49E65D3726D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		29A117D5269CE9B700702878 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				29A117D4269CE9B700702878 /* Event Locator APP.app */,
+				29A117EF269CE9B800702878 /* Event Locator APPTests.xctest */,
+				29A117FA269CE9B800702878 /* Event Locator APPUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29A117D6269CE9B700702878 /* Event Locator APP */ = {
+			isa = PBXGroup;
+			children = (
+				29A117D7269CE9B700702878 /* AppDelegate.h */,
+				29A117D8269CE9B700702878 /* AppDelegate.m */,
+				29A117DA269CE9B700702878 /* SceneDelegate.h */,
+				29A117DB269CE9B700702878 /* SceneDelegate.m */,
+				29A117E0269CE9B700702878 /* Main.storyboard */,
+				29A117E3269CE9B800702878 /* Assets.xcassets */,
+				29A117E5269CE9B800702878 /* LaunchScreen.storyboard */,
+				29A117E8269CE9B800702878 /* Info.plist */,
+				29A117E9269CE9B800702878 /* main.m */,
+				29A1180F269E17C900702878 /* FeedCell.h */,
+				29A11810269E17C900702878 /* FeedCell.m */,
+				29A11815269E188000702878 /* FeedViewController.h */,
+				29A11816269E188000702878 /* FeedViewController.m */,
+				29A11818269E1C5900702878 /* ChatViewController.h */,
+				29A11819269E1C5900702878 /* ChatViewController.m */,
+				29A1181E269E1CA900702878 /* ChatCell.h */,
+				29A1181F269E1CA900702878 /* ChatCell.m */,
+				29A11821269E617900702878 /* LoginViewController.h */,
+				29A11822269E617900702878 /* LoginViewController.m */,
+			);
+			path = "Event Locator APP";
+			sourceTree = "<group>";
+		};
+		29A117F2269CE9B800702878 /* Event Locator APPTests */ = {
+			isa = PBXGroup;
+			children = (
+				29A117F3269CE9B800702878 /* Event_Locator_APPTests.m */,
+				29A117F5269CE9B800702878 /* Info.plist */,
+			);
+			path = "Event Locator APPTests";
+			sourceTree = "<group>";
+		};
+		29A117FD269CE9B800702878 /* Event Locator APPUITests */ = {
+			isa = PBXGroup;
+			children = (
+				29A117FE269CE9B800702878 /* Event_Locator_APPUITests.m */,
+				29A11800269CE9B800702878 /* Info.plist */,
+			);
+			path = "Event Locator APPUITests";
+			sourceTree = "<group>";
+		};
+		BFB56A13BCEBE49E65D3726D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */,
+				41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */,
+				20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		29A117D3269CE9B700702878 /* Event Locator APP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29A11803269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APP" */;
+			buildPhases = (
+				8E522DB3F97674CEE099FEA2 /* [CP] Check Pods Manifest.lock */,
+				29A117D0269CE9B700702878 /* Sources */,
+				29A117D1269CE9B700702878 /* Frameworks */,
+				29A117D2269CE9B700702878 /* Resources */,
+				41E090B7FD1CCE9CC878D47F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Event Locator APP";
+			productName = "Event Locator APP";
+			productReference = 29A117D4269CE9B700702878 /* Event Locator APP.app */;
+			productType = "com.apple.product-type.application";
+		};
+		29A117EE269CE9B800702878 /* Event Locator APPTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29A11806269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APPTests" */;
+			buildPhases = (
+				94C67F8E9EE621FEE2C3CC71 /* [CP] Check Pods Manifest.lock */,
+				29A117EB269CE9B800702878 /* Sources */,
+				29A117EC269CE9B800702878 /* Frameworks */,
+				29A117ED269CE9B800702878 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29A117F1269CE9B800702878 /* PBXTargetDependency */,
+			);
+			name = "Event Locator APPTests";
+			productName = "Event Locator APPTests";
+			productReference = 29A117EF269CE9B800702878 /* Event Locator APPTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		29A117F9269CE9B800702878 /* Event Locator APPUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 29A11809269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APPUITests" */;
+			buildPhases = (
+				1056AEE16A9881BA3A109AAF /* [CP] Check Pods Manifest.lock */,
+				29A117F6269CE9B800702878 /* Sources */,
+				29A117F7269CE9B800702878 /* Frameworks */,
+				29A117F8269CE9B800702878 /* Resources */,
+				283F46990C6FE43ECB71BCA7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				29A117FC269CE9B800702878 /* PBXTargetDependency */,
+			);
+			name = "Event Locator APPUITests";
+			productName = "Event Locator APPUITests";
+			productReference = 29A117FA269CE9B800702878 /* Event Locator APPUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29A117CC269CE9B700702878 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					29A117D3269CE9B700702878 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					29A117EE269CE9B800702878 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 29A117D3269CE9B700702878;
+					};
+					29A117F9269CE9B800702878 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 29A117D3269CE9B700702878;
+					};
+				};
+			};
+			buildConfigurationList = 29A117CF269CE9B700702878 /* Build configuration list for PBXProject "Event Locator APP" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 29A117CB269CE9B700702878;
+			productRefGroup = 29A117D5269CE9B700702878 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				29A117D3269CE9B700702878 /* Event Locator APP */,
+				29A117EE269CE9B800702878 /* Event Locator APPTests */,
+				29A117F9269CE9B800702878 /* Event Locator APPUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		29A117D2269CE9B700702878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29A117E7269CE9B800702878 /* LaunchScreen.storyboard in Resources */,
+				29A117E4269CE9B800702878 /* Assets.xcassets in Resources */,
+				29A117E2269CE9B700702878 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117ED269CE9B800702878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117F8269CE9B800702878 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1056AEE16A9881BA3A109AAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Event Locator APP-Event Locator APPUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		283F46990C6FE43ECB71BCA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41E090B7FD1CCE9CC878D47F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E522DB3F97674CEE099FEA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Event Locator APP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94C67F8E9EE621FEE2C3CC71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Event Locator APPTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		29A117D0269CE9B700702878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29A11823269E617900702878 /* LoginViewController.m in Sources */,
+				29A11811269E17C900702878 /* FeedCell.m in Sources */,
+				29A11820269E1CA900702878 /* ChatCell.m in Sources */,
+				29A11817269E188100702878 /* FeedViewController.m in Sources */,
+				29A1181A269E1C5900702878 /* ChatViewController.m in Sources */,
+				29A117D9269CE9B700702878 /* AppDelegate.m in Sources */,
+				29A117EA269CE9B800702878 /* main.m in Sources */,
+				29A117DC269CE9B700702878 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117EB269CE9B800702878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29A117F4269CE9B800702878 /* Event_Locator_APPTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29A117F6269CE9B800702878 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29A117FF269CE9B800702878 /* Event_Locator_APPUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		29A117F1269CE9B800702878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29A117D3269CE9B700702878 /* Event Locator APP */;
+			targetProxy = 29A117F0269CE9B800702878 /* PBXContainerItemProxy */;
+		};
+		29A117FC269CE9B800702878 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29A117D3269CE9B700702878 /* Event Locator APP */;
+			targetProxy = 29A117FB269CE9B800702878 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		29A117E0269CE9B700702878 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29A117E1269CE9B700702878 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		29A117E5269CE9B800702878 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				29A117E6269CE9B800702878 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		29A11801269CE9B800702878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		29A11802269CE9B800702878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		29A11804269CE9B800702878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF945DECEA29C22ABBB8C57 /* Pods-Event Locator APP.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APP/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		29A11805269CE9B800702878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85021AF8616A324979041AC1 /* Pods-Event Locator APP.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APP/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APP";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		29A11807269CE9B800702878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F60D3AB841CD86D805820158 /* Pods-Event Locator APPTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APPTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APPTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Event Locator APP.app/Event Locator APP";
+			};
+			name = Debug;
+		};
+		29A11808269CE9B800702878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1711238F4B69BD0E7D9CF938 /* Pods-Event Locator APPTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APPTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APPTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Event Locator APP.app/Event Locator APP";
+			};
+			name = Release;
+		};
+		29A1180A269CE9B800702878 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1B95478BEAC58888C909C59 /* Pods-Event Locator APP-Event Locator APPUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APPUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Event Locator APP";
+			};
+			name = Debug;
+		};
+		29A1180B269CE9B800702878 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 836A9AD1E9282490D9B8E7EC /* Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JPYQLVPV2P;
+				INFOPLIST_FILE = "Event Locator APPUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.abenezermolla-fb.com.Event-Locator-APPUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Event Locator APP";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		29A117CF269CE9B700702878 /* Build configuration list for PBXProject "Event Locator APP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29A11801269CE9B800702878 /* Debug */,
+				29A11802269CE9B800702878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29A11803269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29A11804269CE9B800702878 /* Debug */,
+				29A11805269CE9B800702878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29A11806269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APPTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29A11807269CE9B800702878 /* Debug */,
+				29A11808269CE9B800702878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		29A11809269CE9B800702878 /* Build configuration list for PBXNativeTarget "Event Locator APPUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				29A1180A269CE9B800702878 /* Debug */,
+				29A1180B269CE9B800702878 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29A117CC269CE9B700702878 /* Project object */;
+}

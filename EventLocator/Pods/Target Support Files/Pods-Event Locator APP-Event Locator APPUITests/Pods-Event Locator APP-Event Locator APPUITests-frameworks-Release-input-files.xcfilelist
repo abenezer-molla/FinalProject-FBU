@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
+${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
