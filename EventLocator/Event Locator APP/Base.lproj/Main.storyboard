@@ -439,7 +439,7 @@
         <!--Post Page-->
         <scene sceneID="ppH-ga-Ajx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="A5i-Si-0KD" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="A5i-Si-0KD" customClass="ComposeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="REM-41-bFO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -452,6 +452,9 @@
                                 <rect key="frame" x="45" y="207" width="89" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Select Image"/>
+                                <connections>
+                                    <action selector="selectImageAction:" destination="A5i-Si-0KD" eventType="touchUpInside" id="yP1-dO-wxH"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a sample text!" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AZr-Un-3q9">
                                 <rect key="frame" x="166" y="63" width="228" height="34"/>
@@ -464,9 +467,21 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Post Page" id="r5s-Ba-EUV">
-                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="YZG-pT-i9i"/>
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="aHg-ZY-tcM"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancle" id="YZG-pT-i9i">
+                            <connections>
+                                <action selector="canclePostPageAction:" destination="A5i-Si-0KD" id="qoE-5M-3MU"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="aHg-ZY-tcM">
+                            <connections>
+                                <action selector="shareImageAction:" destination="A5i-Si-0KD" id="ufS-Fa-kPX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="captionToShare" destination="AZr-Un-3q9" id="CA5-R4-Voo"/>
+                        <outlet property="imageToShare" destination="8FR-qp-7O0" id="PqL-VS-1UO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4f-df-pGn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
