@@ -11,6 +11,12 @@
 
 #import "FeedCell.h"
 
+#import "Parse/Parse.h"
+
+#import "SceneDelegate.h"
+
+#import "LoginViewController.h"
+
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -31,6 +37,25 @@
     
     // Do any additional setup after loading the view.
 }
+
+
+
+- (IBAction)logoutTapped:(id)sender {
+    
+    
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+    }];
+//    [self dismissViewControllerAnimated:YES completion:nil];
+        SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+        // Logging out and swtiching to login view controller
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    myDelegate.window.rootViewController = loginViewController;
+    
+}
+
+
 
 /*
 #pragma mark - Navigation

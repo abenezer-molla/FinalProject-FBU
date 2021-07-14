@@ -11,7 +11,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,7 +98,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="1fw-vu-z52">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="GzV-B2-wt3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" modalPresentationStyle="fullScreen" id="GzV-B2-wt3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Tts-h6-6B1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -417,7 +417,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="mEr-we-a9x">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="AjY-wG-hiJ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="AjY-wG-hiJ">
+                            <connections>
+                                <action selector="logoutTapped:" destination="doK-rm-WGX" id="7YI-fe-BGK"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="lmb-IW-VTJ">
                             <connections>
                                 <segue destination="FoK-hY-KWu" kind="presentation" id="wIV-km-N6O"/>
