@@ -8,6 +8,7 @@ target 'Event Locator APP' do
   # Pods for Event Locator APP
     pod 'Parse'
     pod 'AFNetworking'
+    pod 'Parse/UI'
 
 
 

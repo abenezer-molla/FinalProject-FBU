@@ -343,7 +343,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SWR-aQ-h3Z">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SWR-aQ-h3Z" customClass="PFImageView">
                                                     <rect key="frame" x="0.0" y="34" width="414" height="171"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -403,12 +403,20 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text.below.photo.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-Xg-FIA">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="text.below.photo.rtl" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IgO-Xg-FIA" customClass="PFImageView">
                                                     <rect key="frame" x="333" y="9" width="61" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="feedCaption" destination="nHG-a9-YfS" id="zKS-Du-Dmp"/>
+                                            <outlet property="feedDateStamp" destination="QeK-SG-SNu" id="6tH-qB-LQw"/>
+                                            <outlet property="feedPostImage" destination="SWR-aQ-h3Z" id="XCq-l5-Fcp"/>
+                                            <outlet property="feedProfileImage" destination="IgO-Xg-FIA" id="3Zz-Df-sd4"/>
+                                            <outlet property="feedUsername" destination="Jwn-9H-r4Z" id="5hg-6b-99p"/>
+                                            <outlet property="profileUsername" destination="3YQ-90-nch" id="9bU-nO-Yod"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

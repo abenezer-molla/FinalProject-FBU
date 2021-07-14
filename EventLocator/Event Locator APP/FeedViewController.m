@@ -20,6 +20,9 @@
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) NSArray *feeds;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
+
 
 
 
@@ -35,8 +38,56 @@
     self.tableView.delegate = self;
     
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:self.refreshControl atIndex:0];
+    
     // Do any additional setup after loading the view.
 }
+
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    [self refreshData];
+
+
+}
+
+
+
+- (void)refreshData{
+    
+    Post *newPost = [Post new];
+
+    // get the current user and assign it to "author" field. "author" field is now of Pointer type
+    newPost.author = [PFUser currentUser];
+        
+    // construct query
+    PFQuery *postQuery = [Post query];
+    [postQuery orderByDescending:@"createdAt"];
+    [postQuery includeKey:@"author"];
+    postQuery.limit = 20;
+
+    // fetch data asynchronously
+    [self.tableView reloadData];
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
+        if (posts) {
+            // do something with the data fetched
+                        self.feeds = posts;
+                        [self.tableView reloadData];
+                        [self.refreshControl endRefreshing];
+        }
+        else {
+            // handle error
+            
+                        NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    [self.tableView reloadData];
+
+}
+
 
 
 
@@ -72,6 +123,11 @@
     
     FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
     
+    
+    Post *post = self.feeds[indexPath.row];
+    NSLog(@"%@", post);
+    [cell setPost:post];
+    
     return cell;
     
     
@@ -79,7 +135,7 @@
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 20;
+    return self.feeds.count;
     
 }
 
