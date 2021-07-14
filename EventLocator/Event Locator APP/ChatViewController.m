@@ -29,7 +29,7 @@
     self.tableViewChat.delegate = self;
     
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData) userInfo:nil repeats:true];
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
     
     
     // Do any additional setup after loading the view.
@@ -56,9 +56,9 @@
     
 }
 
-- (void)refreshData{
+- (void)refreshData2{
     // construct query
-    PFQuery *query = [PFQuery queryWithClassName:@"Message_FBU2021"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"user"];
     query.limit = 20;
     [query orderByDescending:@"createdAt"];
