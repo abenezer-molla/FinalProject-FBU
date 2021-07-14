@@ -10,6 +10,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ChatCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *chatPageUsername;
+@property (weak, nonatomic) IBOutlet UILabel *chatTitle;
+@property (weak, nonatomic) IBOutlet UILabel *chatTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chatDateStamp;
 
 @end
 

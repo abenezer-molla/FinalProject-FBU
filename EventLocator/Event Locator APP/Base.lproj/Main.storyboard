@@ -295,6 +295,12 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chatDateStamp" destination="uLG-Gs-faX" id="bn7-lZ-Mde"/>
+                                            <outlet property="chatPageUsername" destination="44h-aL-bBp" id="1TA-YI-bij"/>
+                                            <outlet property="chatTextLabel" destination="eMP-0O-6nq" id="drl-UZ-YBi"/>
+                                            <outlet property="chatTitle" destination="Wfc-5T-4JF" id="7gi-vK-4gH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -303,6 +309,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="didTapSend:" destination="UCY-KF-uDS" eventType="touchUpInside" id="v05-XN-bDK"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Rl-mS-Lio">
                                 <rect key="frame" x="20" y="92" width="294" height="34"/>
@@ -316,6 +325,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Group Chat" id="3fp-V3-AUp"/>
                     <connections>
+                        <outlet property="composeChatText" destination="9Rl-mS-Lio" id="w6s-Fe-S5Z"/>
                         <outlet property="tableViewChat" destination="Okm-r6-hUZ" id="U7H-LS-yAk"/>
                     </connections>
                 </viewController>
@@ -362,7 +372,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07/12/21" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QeK-SG-SNu">
-                                                    <rect key="frame" x="20" y="237" width="51" height="17"/>
+                                                    <rect key="frame" x="20" y="237" width="81" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                                     <nil key="textColor"/>
