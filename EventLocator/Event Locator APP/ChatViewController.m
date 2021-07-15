@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *composeChatText;
 @property (weak, nonatomic) IBOutlet UITextField *chatTitleText;
 
-
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSArray *chats;
 
@@ -31,13 +31,25 @@
     
     self.tableViewChat.delegate = self;
     
+    self.refreshControl = [[UIRefreshControl alloc] init];
     
-    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
+    [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableViewChat insertSubview:self.refreshControl atIndex:0];
+    
+    
+    //[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
     
     
     // Do any additional setup after loading the view.
 }
 
+
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
+    
+    [self refreshData2];
+
+
+}
 
 
 
@@ -74,10 +86,14 @@
             // do something with the array of object returned by the call
             self.chats = posts;
             [self.tableViewChat reloadData];
+            [self.refreshControl endRefreshing];
         } else {
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
+    
+    [self.tableViewChat reloadData];
 }
 
 
