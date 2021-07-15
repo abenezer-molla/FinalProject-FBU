@@ -122,30 +122,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-2O-QvL">
-                                <rect key="frame" x="127" y="112" width="150" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button2 to test Segue"/>
-                                <connections>
-                                    <segue destination="j6r-BW-LA0" kind="show" identifier="tagSegue2" id="YSL-0f-AzE"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwI-VZ-agx">
-                                <rect key="frame" x="132" y="528" width="141" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button to test Segue"/>
-                                <connections>
-                                    <segue destination="jsq-GL-t4U" kind="show" identifier="tagSegue1" id="Aoo-Uq-vMY"/>
-                                </connections>
-                            </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MLI-dz-V58">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVX-fy-E7d">
-                                <rect key="frame" x="178" y="750" width="130" height="45"/>
+                                <rect key="frame" x="160" y="654" width="95" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="camera-l"/>
+                                <state key="normal" image="wand.and.rays" catalog="system" backgroundImage="camera-l"/>
                                 <connections>
                                     <action selector="photoButtonOnMap:" destination="IGL-eG-6sm" eventType="touchUpInside" id="WA6-jI-r7b"/>
                                 </connections>
@@ -157,6 +141,7 @@
                     <navigationItem key="navigationItem" title="Photo-Map-Pin" id="daz-0f-8HP"/>
                     <connections>
                         <outlet property="mapView" destination="MLI-dz-V58" id="cGv-3Z-elp"/>
+                        <segue destination="jsq-GL-t4U" kind="show" identifier="tagSegue" id="sql-AY-YYN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wJ-D5-Ii7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -176,7 +161,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cwJ-q1-2vb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cwJ-q1-2vb">
                                 <rect key="frame" x="0.0" y="132" width="414" height="764"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -638,6 +623,7 @@
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="wand.and.rays" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
