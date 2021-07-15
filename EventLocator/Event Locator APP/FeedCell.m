@@ -26,19 +26,19 @@
 
 
 - (void)setPost:(Post *)post {
-    //NSLog(@"%@", post);
-    //self.post = post;
-    //self.feedProfileImage.file = post.image;
+    self.feedProfileImage.file = post.image;
     self.feedPostImage.file = post.image;
     
     [self.feedPostImage loadInBackground];
     self.feedCaption.text = post.caption;
+    self.likeCountFeed.text = post.likeCount.stringValue;
     
     PFUser *user = post.author;
     self.feedUsername.text = user.username;
     self.profileUsername.text = user.username;
     
     self.feedDateStamp.text = [NSDateFormatter localizedStringFromDate:post.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    
     
 
 }

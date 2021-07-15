@@ -246,7 +246,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="121" id="Bna-Wj-Jxv" customClass="ChatCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatCell" rowHeight="121" id="Bna-Wj-Jxv" customClass="ChatCell">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bna-Wj-Jxv" id="v2f-Xu-bLC">
@@ -300,6 +300,7 @@
                                             <outlet property="chatPageUsername" destination="44h-aL-bBp" id="1TA-YI-bij"/>
                                             <outlet property="chatTextLabel" destination="eMP-0O-6nq" id="drl-UZ-YBi"/>
                                             <outlet property="chatTitle" destination="Wfc-5T-4JF" id="7gi-vK-4gH"/>
+                                            <outlet property="likeCountChat" destination="Mi8-tD-hu2" id="Ehk-Bh-neV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -442,6 +443,7 @@
                                             <outlet property="feedPostImage" destination="SWR-aQ-h3Z" id="XCq-l5-Fcp"/>
                                             <outlet property="feedProfileImage" destination="IgO-Xg-FIA" id="3Zz-Df-sd4"/>
                                             <outlet property="feedUsername" destination="Jwn-9H-r4Z" id="5hg-6b-99p"/>
+                                            <outlet property="likeCountFeed" destination="LHW-Ut-Ecb" id="Ox3-ab-rmN"/>
                                             <outlet property="profileUsername" destination="3YQ-90-nch" id="9bU-nO-Yod"/>
                                         </connections>
                                     </tableViewCell>

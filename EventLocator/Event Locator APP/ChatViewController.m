@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *composeChatText;
 @property (weak, nonatomic) IBOutlet UITextField *chatTitleText;
 
+
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSArray *chats;
@@ -35,6 +36,8 @@
     
     [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableViewChat insertSubview:self.refreshControl atIndex:0];
+    
+    [self refreshData2];
     
     
     //[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
@@ -102,7 +105,10 @@
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     chatCell.chatTextLabel.text = self.chats[indexPath.row][@"text"];
     chatCell.chatTitle.text = self.chats[indexPath.row][@"title"];
-//    chatCell.chatDateStamp.text= [NSDateFormatter localizedStringFromDate:.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    
+    //chatCell.likeCountChat.text = self.chats[indexPath.row][@"likeCount"];
+    //chatCell.chatDateStamp.text = [NSDateFormatter localizedStringFromDate:self.chats[indexPath.row][@"createdAt"] dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+
     if(self.chats[indexPath.row][@"user"] != nil){
         chatCell.chatPageUsername.text = self.chats[indexPath.row][@"user"][@"username"];
     }else{

@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *feedDateStamp;
 
+@property (weak, nonatomic) IBOutlet UILabel *likeCountFeed;
 
 
 @property (strong, nonatomic) Post *post;
