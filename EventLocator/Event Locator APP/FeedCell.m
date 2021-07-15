@@ -28,7 +28,7 @@
 - (void)setPost:(Post *)post {
     //NSLog(@"%@", post);
     //self.post = post;
-    self.feedProfileImage.file = post.image;
+    //self.feedProfileImage.file = post.image;
     self.feedPostImage.file = post.image;
     
     [self.feedPostImage loadInBackground];
