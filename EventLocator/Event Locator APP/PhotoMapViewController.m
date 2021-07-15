@@ -34,18 +34,26 @@
     // Do any additional setup after loading the view.
 }
 
+
+
+
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-     MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
-     if (annotationView == nil) {
-         annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
-         annotationView.canShowCallout = true;
-         annotationView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
-     }
+    MKPinAnnotationView *annotationView = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Pin"];
+    if (annotationView == nil) {
+    annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Pin"];
+    annotationView.canShowCallout = true;
+    annotationView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    }
 
-     UIImageView *imageView = (UIImageView*)annotationView.leftCalloutAccessoryView;
-     imageView.image = [UIImage imageNamed:@"camera-icon"];
+    UIImageView *imageView = (UIImageView*)annotationView.leftCalloutAccessoryView;
+    // imageView.image = [UIImage imageNamed:@"camera-icon"]; // remove this line
 
-     return annotationView;
+    // add these two lines below
+    PhotoAnnotation *photoAnnotationItem = annotation; // refer to this generic annotation as our more specific PhotoAnnotation
+    imageView.image = photoAnnotationItem.photo; // set the image into the callout imageview
+
+    return annotationView;
  }
 
 - (IBAction)photoButtonOnMap:(id)sender {
@@ -79,8 +87,6 @@
     
     // Get the image captured by the UIImagePickerController
     UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
     // Do something with the images (based on your use case)
     self.selectedImage = originalImage;
     
