@@ -32,7 +32,7 @@
     self.tableViewChat.delegate = self;
     
     
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(refreshData2) userInfo:nil repeats:true];
     
     
     // Do any additional setup after loading the view.
@@ -45,7 +45,7 @@
     
     PFObject *chatMessage = [PFObject objectWithClassName:@"Chats"];
     chatMessage[@"text"] = self.composeChatText.text;
-    chatMessage[@"title"] = self.chatTitleText.text;
+    //chatMessage[@"title"] = self.chatTitleText.text;
     
     chatMessage[@"user"] = PFUser.currentUser;
     [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -56,6 +56,7 @@
         }
     }];
     self.composeChatText.text = @"";
+    self.chatTitleText.text = @"";
     
     
     
@@ -65,7 +66,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];
     [query includeKey:@"user"];
-    query.limit = 20;
+    //query.limit = 20;
     [query orderByDescending:@"createdAt"];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -84,7 +85,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     chatCell.chatTextLabel.text = self.chats[indexPath.row][@"text"];
-    chatCell.chatTitle.text = self.chats[indexPath.row][@"title"];
+    //chatCell.chatTitle.text = self.chats[indexPath.row][@"title"];
 //    chatCell.chatDateStamp.text= [NSDateFormatter localizedStringFromDate:.createdAt dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     if(self.chats[indexPath.row][@"user"] != nil){
         chatCell.chatPageUsername.text = self.chats[indexPath.row][@"user"][@"username"];
