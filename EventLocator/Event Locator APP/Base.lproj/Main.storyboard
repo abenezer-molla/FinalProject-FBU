@@ -117,17 +117,17 @@
         <!--Photo-Map-Pin-->
         <scene sceneID="TnT-R1-dp3">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="IGL-eG-6sm" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="IGL-eG-6sm" customClass="PhotoMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="187-pP-zKB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4u-2O-QvL">
-                                <rect key="frame" x="132" y="360" width="150" height="30"/>
+                                <rect key="frame" x="127" y="112" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button2 to test Segue"/>
                                 <connections>
-                                    <segue destination="j6r-BW-LA0" kind="show" id="YSL-0f-AzE"/>
+                                    <segue destination="j6r-BW-LA0" kind="show" identifier="tagSegue2" id="YSL-0f-AzE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwI-VZ-agx">
@@ -135,7 +135,19 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button to test Segue"/>
                                 <connections>
-                                    <segue destination="jsq-GL-t4U" kind="show" id="Aoo-Uq-vMY"/>
+                                    <segue destination="jsq-GL-t4U" kind="show" identifier="tagSegue1" id="Aoo-Uq-vMY"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="MLI-dz-V58">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVX-fy-E7d">
+                                <rect key="frame" x="178" y="750" width="130" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="camera-l"/>
+                                <connections>
+                                    <action selector="photoButtonOnMap:" destination="IGL-eG-6sm" eventType="touchUpInside" id="WA6-jI-r7b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -143,15 +155,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Photo-Map-Pin" id="daz-0f-8HP"/>
+                    <connections>
+                        <outlet property="mapView" destination="MLI-dz-V58" id="cGv-3Z-elp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wJ-D5-Ii7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4819" y="-1585"/>
+            <point key="canvasLocation" x="4818.840579710145" y="-1585.0446428571429"/>
         </scene>
         <!--Location Tag-->
         <scene sceneID="e04-Xs-2za">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="jsq-GL-t4U" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="jsq-GL-t4U" customClass="LocationTagViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="13T-sG-K1p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -166,7 +181,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="92" id="HIu-vB-Ltu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="92" id="HIu-vB-Ltu" customClass="LocationCell">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HIu-vB-Ltu" id="eOg-Vg-fg1">
@@ -193,6 +208,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="locationAdress" destination="z2C-Sh-u3B" id="PLy-jN-pME"/>
+                                            <outlet property="locationImage" destination="u3b-b2-iJk" id="6ym-KT-EyG"/>
+                                            <outlet property="locationTitle" destination="ABL-6l-tR4" id="m1X-qj-CFp"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -206,6 +226,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Location Tag" id="KXK-v0-jzF"/>
+                    <connections>
+                        <outlet property="searchLocation" destination="95x-3v-Cst" id="Rj4-yI-ZHH"/>
+                        <outlet property="tableView" destination="cwJ-q1-2vb" id="e1C-3I-DkS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TBk-8f-P5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +238,7 @@
         <!--Full Photo View-->
         <scene sceneID="IaU-qz-qrs">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="j6r-BW-LA0" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="j6r-BW-LA0" customClass="FullImageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RO1-8s-YNg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -231,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g7-oK-8Wk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5711.594202898551" y="-2345.7589285714284"/>
+            <point key="canvasLocation" x="5712" y="-2493"/>
         </scene>
         <!--Group Chat-->
         <scene sceneID="bJW-Z5-V4l">
@@ -359,7 +383,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="306" id="qHD-ZZ-1Qv" customClass="FeedCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="FeedCell" rowHeight="306" id="qHD-ZZ-1Qv" customClass="FeedCell">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="306"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qHD-ZZ-1Qv" id="7Ge-bE-fAt">
@@ -601,6 +625,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera-l" width="30" height="30"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="house" catalog="system" width="128" height="106"/>

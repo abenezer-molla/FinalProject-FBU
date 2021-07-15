@@ -32,11 +32,11 @@
     
     self.tableViewChat.delegate = self;
     
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    
+   self.refreshControl = [[UIRefreshControl alloc] init];
+//
     [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableViewChat insertSubview:self.refreshControl atIndex:0];
-    
+//
     [self refreshData2];
     
     

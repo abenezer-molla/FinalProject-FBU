@@ -22,6 +22,12 @@
 		29A1181A269E1C5900702878 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11819269E1C5900702878 /* ChatViewController.m */; };
 		29A11820269E1CA900702878 /* ChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A1181F269E1CA900702878 /* ChatCell.m */; };
 		29A11823269E617900702878 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A11822269E617900702878 /* LoginViewController.m */; };
+		29DD972E26A0EA3E00D4A526 /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD972D26A0EA3E00D4A526 /* PhotoMapViewController.m */; };
+		29DD973126A0EA6200D4A526 /* FullImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973026A0EA6200D4A526 /* FullImageViewController.m */; };
+		29DD973426A0EA7200D4A526 /* LocationTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973326A0EA7200D4A526 /* LocationTagViewController.m */; };
+		29DD973726A0EC5900D4A526 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973626A0EC5900D4A526 /* LocationCell.m */; };
+		29DD973926A0EEEA00D4A526 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DD973826A0EEE900D4A526 /* MapKit.framework */; };
+		29DD973C26A0F1ED00D4A526 /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */; };
 		5A6A08839B6926C299C1CD0C /* Pods_Event_Locator_APP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */; };
 		94A4764CEFE6D523EAFF7EE9 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */; };
 		A121C492F906336BA5D36954 /* Pods_Event_Locator_APPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */; };
@@ -77,6 +83,17 @@
 		29A1181F269E1CA900702878 /* ChatCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatCell.m; sourceTree = "<group>"; };
 		29A11821269E617900702878 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		29A11822269E617900702878 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		29DD972C26A0EA3E00D4A526 /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		29DD972D26A0EA3E00D4A526 /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		29DD972F26A0EA6200D4A526 /* FullImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FullImageViewController.h; sourceTree = "<group>"; };
+		29DD973026A0EA6200D4A526 /* FullImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FullImageViewController.m; sourceTree = "<group>"; };
+		29DD973226A0EA7200D4A526 /* LocationTagViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationTagViewController.h; sourceTree = "<group>"; };
+		29DD973326A0EA7200D4A526 /* LocationTagViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationTagViewController.m; sourceTree = "<group>"; };
+		29DD973526A0EC5900D4A526 /* LocationCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationCell.h; sourceTree = "<group>"; };
+		29DD973626A0EC5900D4A526 /* LocationCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationCell.m; sourceTree = "<group>"; };
+		29DD973826A0EEE900D4A526 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		29DD973A26A0F1ED00D4A526 /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
+		29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
 		41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_Locator_APP_Event_Locator_APPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836A9AD1E9282490D9B8E7EC /* Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85021AF8616A324979041AC1 /* Pods-Event Locator APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DD973926A0EEEA00D4A526 /* MapKit.framework in Frameworks */,
 				5A6A08839B6926C299C1CD0C /* Pods_Event_Locator_APP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,6 +193,16 @@
 				293349C1269F712F006E0327 /* ComposeViewController.m */,
 				293349C3269F7377006E0327 /* Post.h */,
 				293349C4269F7377006E0327 /* Post.m */,
+				29DD972C26A0EA3E00D4A526 /* PhotoMapViewController.h */,
+				29DD972D26A0EA3E00D4A526 /* PhotoMapViewController.m */,
+				29DD972F26A0EA6200D4A526 /* FullImageViewController.h */,
+				29DD973026A0EA6200D4A526 /* FullImageViewController.m */,
+				29DD973226A0EA7200D4A526 /* LocationTagViewController.h */,
+				29DD973326A0EA7200D4A526 /* LocationTagViewController.m */,
+				29DD973526A0EC5900D4A526 /* LocationCell.h */,
+				29DD973626A0EC5900D4A526 /* LocationCell.m */,
+				29DD973A26A0F1ED00D4A526 /* PhotoAnnotation.h */,
+				29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */,
 			);
 			path = "Event Locator APP";
 			sourceTree = "<group>";
@@ -200,6 +228,7 @@
 		BFB56A13BCEBE49E65D3726D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				29DD973826A0EEE900D4A526 /* MapKit.framework */,
 				FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */,
 				41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */,
 				20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */,
@@ -444,14 +473,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29DD973426A0EA7200D4A526 /* LocationTagViewController.m in Sources */,
 				29A11823269E617900702878 /* LoginViewController.m in Sources */,
+				29DD973726A0EC5900D4A526 /* LocationCell.m in Sources */,
 				29A11811269E17C900702878 /* FeedCell.m in Sources */,
+				29DD973C26A0F1ED00D4A526 /* PhotoAnnotation.m in Sources */,
 				29A11820269E1CA900702878 /* ChatCell.m in Sources */,
 				293349C2269F712F006E0327 /* ComposeViewController.m in Sources */,
 				29A11817269E188100702878 /* FeedViewController.m in Sources */,
 				293349C5269F7378006E0327 /* Post.m in Sources */,
 				29A1181A269E1C5900702878 /* ChatViewController.m in Sources */,
 				29A117D9269CE9B700702878 /* AppDelegate.m in Sources */,
+				29DD972E26A0EA3E00D4A526 /* PhotoMapViewController.m in Sources */,
+				29DD973126A0EA6200D4A526 /* FullImageViewController.m in Sources */,
 				29A117EA269CE9B800702878 /* main.m in Sources */,
 				29A117DC269CE9B700702878 /* SceneDelegate.m in Sources */,
 			);
