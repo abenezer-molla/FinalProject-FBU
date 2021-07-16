@@ -142,6 +142,7 @@
                     <connections>
                         <outlet property="mapView" destination="MLI-dz-V58" id="cGv-3Z-elp"/>
                         <segue destination="jsq-GL-t4U" kind="show" identifier="tagSegue" id="sql-AY-YYN"/>
+                        <segue destination="j6r-BW-LA0" kind="show" identifier="firstSegue" id="5cs-kl-9Ha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wJ-D5-Ii7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

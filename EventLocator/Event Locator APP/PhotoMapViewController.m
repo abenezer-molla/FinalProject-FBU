@@ -44,7 +44,10 @@
     annotationView.canShowCallout = true;
     annotationView.leftCalloutAccessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0, 0.0, 50.0, 50.0)];
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     }
+    
+    
 
     UIImageView *imageView = (UIImageView*)annotationView.leftCalloutAccessoryView;
     // imageView.image = [UIImage imageNamed:@"camera-icon"]; // remove this line
@@ -55,6 +58,15 @@
 
     return annotationView;
  }
+
+
+- (void)mapView:(MKMapView *)mapView
+ annotationView:(MKAnnotationView *)view
+calloutAccessoryControlTapped:(UIControl *)control{
+ 
+    [self performSegueWithIdentifier:@"firstSegue" sender:nil];
+
+}
 
 - (IBAction)photoButtonOnMap:(id)sender {
     
@@ -105,7 +117,12 @@
     if([segue.identifier isEqualToString:@"tagSegue"]) {
             LocationTagViewController *vc = segue.destinationViewController;
             vc.delegate = self;
-        }
+    } else if([segue.identifier isEqualToString:@"firstSegue"]) {
+        
+        
+        
+        
+    }
 }
 
 
