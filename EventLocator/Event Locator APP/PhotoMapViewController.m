@@ -13,6 +13,8 @@
 
 #import "LocationTagViewController.h"
 
+#import "FullImageViewController.h"
+
 
 @interface PhotoMapViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, LocationsViewControllerDelegate, MKMapViewDelegate>
 
@@ -120,8 +122,10 @@ calloutAccessoryControlTapped:(UIControl *)control{
     } else if([segue.identifier isEqualToString:@"firstSegue"]) {
         
         
+        FullImageViewController *vc2 = segue.destinationViewController;
         
-        
+        // CONTINUE FROM THIS POINT!!
+    
     }
 }
 

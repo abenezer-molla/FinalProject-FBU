@@ -40,6 +40,7 @@
     self.locationTitle.text = location[@"name"];
     self.locationAdress.text = [location valueForKeyPath:@"location.address"];
     
+    
     NSArray *categories = location[@"categories"];
     if (categories && categories.count > 0) {
         NSDictionary *category = categories[0];

@@ -22,6 +22,8 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 
 @end
 
+
+
 @implementation LocationTagViewController
 
 
@@ -48,7 +50,6 @@ static NSString * const clientSecret = @"W2AOE1TYC4MHK5SZYOUGX0J3LVRALMPB4CXT3ZH
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LocationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LocationCell" forIndexPath:indexPath];
     
-    // TODO: get one element from the "results" array, and pass it to the cell
     NSDictionary *venue = self.results[indexPath.row];
     [cell updateWithLocation:venue];
     
