@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FullImageViewController : UIViewController
 
+@property (nonatomic, strong) UIImage *fullImage;
+
 @end
 
 NS_ASSUME_NONNULL_END

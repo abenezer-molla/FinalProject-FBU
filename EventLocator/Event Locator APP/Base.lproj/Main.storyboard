@@ -238,6 +238,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Full Photo View" id="dxB-7d-4gF"/>
+                    <connections>
+                        <outlet property="fullImageView" destination="EFl-Pb-QsG" id="dNg-Hf-7JA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1g7-oK-8Wk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -611,7 +614,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-l" width="30" height="30"/>
+        <image name="camera-l" width="128" height="128"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="house" catalog="system" width="128" height="106"/>

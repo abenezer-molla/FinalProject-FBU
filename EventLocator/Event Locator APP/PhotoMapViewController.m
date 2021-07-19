@@ -123,6 +123,7 @@ calloutAccessoryControlTapped:(UIControl *)control{
         
         
         FullImageViewController *vc2 = segue.destinationViewController;
+        vc2.fullImage = self.selectedImage;
         
         // CONTINUE FROM THIS POINT!!
     
