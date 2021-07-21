@@ -17,11 +17,16 @@
 
 #import "LoginViewController.h"
 
-@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource>
+#import "InfinteScrolls.h"
+
+@interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) NSArray *feeds;
+@property (strong, nonatomic) NSMutableArray *feeds;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+
+@property (nonatomic) BOOL isMoreDataLoading;
+@property (nonatomic) int skipCount;
 
 
 
@@ -30,6 +35,10 @@
 
 @implementation FeedViewController
 
+
+bool isMoreDataLoading = false;
+InfinteScrolls* loadingMoreView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -37,14 +46,24 @@
     
     self.tableView.delegate = self;
     
+    self.skipCount = 2;
+    
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     
     [self.refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    CGRect frame = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfinteScrolls.defaultHeight);
+    loadingMoreView = [[InfinteScrolls alloc] initWithFrame:frame];
+    loadingMoreView.hidden = true;
+    [self.tableView addSubview:loadingMoreView];
     
-    
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.bottom += InfinteScrolls.defaultHeight;
+    self.tableView.contentInset = insets;
+ 
     [self refreshData];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -52,7 +71,6 @@
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     [self refreshData];
-
 
 }
 
@@ -76,7 +94,7 @@
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
             // do something with the data fetched
-                        self.feeds = posts;
+                        self.feeds = (NSMutableArray*)posts;
                         [self.tableView reloadData];
                         [self.refreshControl endRefreshing];
         }
@@ -110,6 +128,47 @@
 
 
 
+- (void)_loadMoreData {
+    PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
+    
+    query.limit = 20 * self.skipCount;
+    [query orderByDescending:@"createdAt"];
+    [query includeKey:@"author"];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            
+            self.isMoreDataLoading = false;
+            self.feeds = (NSMutableArray *) posts;
+            //NSLog(@"Posts added to array%@", self.feeds);
+            [self.tableView reloadData];
+            
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+    self.skipCount++;
+}
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!self.isMoreDataLoading){
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            CGRect frame2 = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfinteScrolls.defaultHeight);
+            loadingMoreView.frame = frame2;
+            [loadingMoreView startAnimating];
+            [self _loadMoreData];
+        }
+    }
+}
+
+
+
 /*
 #pragma mark - Navigation
 
@@ -127,7 +186,7 @@
     
     
     Post *post = self.feeds[indexPath.row];
-    NSLog(@"%@", post);
+    //NSLog(@"%@", post);
     [cell setPost:post];
     
     return cell;
