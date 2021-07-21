@@ -28,9 +28,6 @@
 @property (nonatomic) BOOL isMoreDataLoading;
 @property (nonatomic) int skipCount;
 
-
-
-
 @end
 
 @implementation FeedViewController
@@ -87,7 +84,7 @@ InfinteScrolls* loadingMoreView;
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
-    postQuery.limit = 5;
+    postQuery.limit = 3;
 
     // fetch data asynchronously
     [self.tableView reloadData];
@@ -169,7 +166,7 @@ InfinteScrolls* loadingMoreView;
             loadingMoreView.frame = frame2;
             [loadingMoreView startAnimating];
             
-            NSTimeInterval delayInSeconds = 3.0;
+            NSTimeInterval delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
               NSLog(@"Do some work");

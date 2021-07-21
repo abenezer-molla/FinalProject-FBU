@@ -77,6 +77,12 @@
     
 }
 
+
+- (IBAction)tapGestureChat:(id)sender {
+    
+    [self.view endEditing:true];
+}
+
 - (void)refreshData2{
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];

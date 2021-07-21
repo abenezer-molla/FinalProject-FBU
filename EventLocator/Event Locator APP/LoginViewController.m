@@ -35,6 +35,13 @@
     
 }
 
+- (IBAction)tapGesture:(id)sender {
+    
+    [self.view endEditing:true];
+}
+
+
+
 
 - (IBAction)signupTapped:(id)sender {
     
