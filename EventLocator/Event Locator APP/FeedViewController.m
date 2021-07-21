@@ -87,7 +87,7 @@ InfinteScrolls* loadingMoreView;
     PFQuery *postQuery = [Post query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    postQuery.limit = 5;
 
     // fetch data asynchronously
     [self.tableView reloadData];
@@ -129,18 +129,18 @@ InfinteScrolls* loadingMoreView;
 
 
 - (void)_loadMoreData {
-    PFQuery *const query = [PFQuery queryWithClassName:@"Post"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     
-    query.limit = 20 * self.skipCount;
+    query.limit = 5 * self.skipCount;
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            
+            NSLog(@"%d",posts.count);
             self.isMoreDataLoading = false;
-            self.feeds = (NSMutableArray *) posts;
-            //NSLog(@"Posts added to array%@", self.feeds);
+            self.feeds = (NSMutableArray *)posts;
+            NSLog(@"Posts added to array%lu", (unsigned long)self.feeds.count);
             [self.tableView reloadData];
             
         } else {
@@ -153,6 +153,8 @@ InfinteScrolls* loadingMoreView;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
+        
+        //NSLog(@"CALLED");
         int scrollViewContentHeight = self.tableView.contentSize.height;
         int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
         
