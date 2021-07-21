@@ -128,7 +128,11 @@ InfinteScrolls* loadingMoreView;
 
 
 
+
+
+
 - (void)_loadMoreData {
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     
     query.limit = 5 * self.skipCount;
@@ -164,7 +168,15 @@ InfinteScrolls* loadingMoreView;
             CGRect frame2 = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfinteScrolls.defaultHeight);
             loadingMoreView.frame = frame2;
             [loadingMoreView startAnimating];
-            [self _loadMoreData];
+            
+            NSTimeInterval delayInSeconds = 3.0;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+              NSLog(@"Do some work");
+                [self _loadMoreData];
+            });
+            
+            
         }
     }
 }
