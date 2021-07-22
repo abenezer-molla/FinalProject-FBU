@@ -187,16 +187,17 @@ InfinteScrolls* loadingMoreView;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     
-    query.limit = 5 * self.skipCount;
+    query.limit = 3 * self.skipCount;
+    
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             //NSLog(@"%d",posts.count);
+            NSLog(@"Posts added to array:  %lu", (unsigned long)self.feeds.count);
             self.isMoreDataLoading = false;
             self.feeds = (NSMutableArray *)posts;
-
             [self.tableView reloadData];
             
         } else {
@@ -227,14 +228,16 @@ InfinteScrolls* loadingMoreView;
             }];
         }
     }];
+    
     self.skipCount++;
 }
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
         
-        //NSLog(@"Posts added to array:  %lu", (unsigned long)self.feeds.count);
+        
         
         //NSLog(@"CALLED");
         int scrollViewContentHeight = self.tableView.contentSize.height;
