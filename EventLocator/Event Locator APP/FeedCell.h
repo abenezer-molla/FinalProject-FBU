@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UILabel *likeCountFeed;
 
+@property (weak, nonatomic) IBOutlet UITextField *typeComment;
+
+
+@property (strong, nonatomic) FeedCell *feedcell;
+
 
 @property (strong, nonatomic) Post *post;
 

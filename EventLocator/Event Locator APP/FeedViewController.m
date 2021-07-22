@@ -18,6 +18,9 @@
 #import "LoginViewController.h"
 
 #import "InfinteScrolls.h"
+#import "Comment.h"
+
+#import "CommentsCell.h"
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -27,6 +30,7 @@
 
 @property (nonatomic) BOOL isMoreDataLoading;
 @property (nonatomic) int skipCount;
+
 
 @end
 
@@ -98,12 +102,63 @@ InfinteScrolls* loadingMoreView;
         else {
             // handle error
             
-                        NSLog(@"%@", error.localizedDescription);
+            NSLog(@"%@", error.localizedDescription);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Network"
+                                                                                       message:@"Please connect your device to a network source and try again."
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+            // create a cancel action
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                     // handle cancel response here. Doing nothing will dismiss the view.
+                                                              }];
+            // add the cancel action to the alertController
+            [alert addAction:cancelAction];
+
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                     // handle response here.
+                                                             }];
+            // add the OK action to the alert controller
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+            }];
         }
     }];
     [self.tableView reloadData];
 
 }
+
+
+
+
+- (IBAction)didTapComment:(id)sender {
+    
+    NSLog(@"Commented!");
+    
+    
+  
+    
+//   // [Comment withCaption:self.captionToShare.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+//
+//        if(succeeded){
+//
+//            NSLog(@"Yay");
+//        } else{
+//
+//            NSLog(@"Nope");
+//        }
+//    }];
+//
+
+
+}
+
+
 
 
 
@@ -138,14 +193,38 @@ InfinteScrolls* loadingMoreView;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            NSLog(@"%d",posts.count);
+            //NSLog(@"%d",posts.count);
             self.isMoreDataLoading = false;
             self.feeds = (NSMutableArray *)posts;
-            NSLog(@"Posts added to array%lu", (unsigned long)self.feeds.count);
+
             [self.tableView reloadData];
             
         } else {
             NSLog(@"%@", error.localizedDescription);
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Network"
+                                                                                       message:@"Please connect your device to a network source and try again."
+                                                                                preferredStyle:(UIAlertControllerStyleAlert)];
+            // create a cancel action
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancle"
+                                                                style:UIAlertActionStyleCancel
+                                                              handler:^(UIAlertAction * _Nonnull action) {
+                                                                     // handle cancel response here. Doing nothing will dismiss the view.
+                                                              }];
+            // add the cancel action to the alertController
+            [alert addAction:cancelAction];
+
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Try Again"
+                                                               style:UIAlertActionStyleDefault
+                                                             handler:^(UIAlertAction * _Nonnull action) {
+                                                                     // handle response here.
+                                                             }];
+            // add the OK action to the alert controller
+            [alert addAction:okAction];
+            
+            [self presentViewController:alert animated:YES completion:^{
+                // optional code for what happens after the alert controller has finished presenting
+            }];
         }
     }];
     self.skipCount++;
@@ -154,6 +233,8 @@ InfinteScrolls* loadingMoreView;
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if(!self.isMoreDataLoading){
+        
+        //NSLog(@"Posts added to array:  %lu", (unsigned long)self.feeds.count);
         
         //NSLog(@"CALLED");
         int scrollViewContentHeight = self.tableView.contentSize.height;

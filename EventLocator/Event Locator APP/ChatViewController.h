@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate>
 
 @end
 
