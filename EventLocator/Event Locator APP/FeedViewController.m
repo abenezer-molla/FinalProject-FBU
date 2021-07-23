@@ -7,6 +7,8 @@
 
 #import <ChameleonFramework/Chameleon.h>
 
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
+
 #import "FeedViewController.h"
 
 #import "AppDelegate.h"
@@ -286,6 +288,10 @@ InfinteScrolls* loadingMoreView;
     
     
     FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
+    cell.layer.cornerRadius = 35;
+    //cell.backgroundColor = UIColor.gray
+    cell.clipsToBounds = true;
+    //cell.swipeBackgroundColor = UIColor.gray;
     
     
     Post *post = self.feeds[indexPath.row];

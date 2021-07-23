@@ -17,6 +17,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.feedcell.backgroundColor = FlatGreen;
+    self.typeComment.layer.cornerRadius = 40;
     
     // Initialization code
 }

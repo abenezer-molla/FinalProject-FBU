@@ -10,6 +10,9 @@ target 'Event Locator APP' do
     pod 'AFNetworking'
     pod 'Parse/UI'
     pod 'ChameleonFramework'
+    pod 'MGSwipeTableCell'
+
+
 
 
 

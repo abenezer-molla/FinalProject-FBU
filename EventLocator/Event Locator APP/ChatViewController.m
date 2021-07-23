@@ -13,6 +13,7 @@
 #import "ChatCell.h"
 #import "LoginViewController.h"
 #import "SceneDelegate.h"
+#import <MGSwipeTableCell/MGSwipeTableCell.h>
 
 #import "InfinteScrolls.h"
 
@@ -212,6 +213,9 @@ InfinteScrolls* loadingMoreView2;
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
+    chatCell.layer.cornerRadius = 35;
+    //cell.backgroundColor = UIColor.gray
+    chatCell.clipsToBounds = true;
     chatCell.chatTextLabel.text = self.filteredChats[indexPath.row][@"text"];
     chatCell.chatTitle.text = self.filteredChats[indexPath.row][@"title"];
     
