@@ -9,6 +9,7 @@ target 'Event Locator APP' do
     pod 'Parse'
     pod 'AFNetworking'
     pod 'Parse/UI'
+    pod 'ChameleonFramework'
 
 
 

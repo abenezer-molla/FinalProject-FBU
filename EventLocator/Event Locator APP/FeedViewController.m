@@ -5,6 +5,8 @@
 //  Created by abenezermolla on 7/13/21.
 //
 
+#import <ChameleonFramework/Chameleon.h>
+
 #import "FeedViewController.h"
 
 #import "AppDelegate.h"
@@ -42,6 +44,12 @@ InfinteScrolls* loadingMoreView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.backgroundColor = FlatGray;
+    
+    RandomFlatColorWithShade(UIShadeStyleLight);
+    
+    //[UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
     
     self.tableView.dataSource = self;
     
@@ -250,7 +258,7 @@ InfinteScrolls* loadingMoreView;
             loadingMoreView.frame = frame2;
             [loadingMoreView startAnimating];
             
-            NSTimeInterval delayInSeconds = 2.0;
+            NSTimeInterval delayInSeconds = 0.1;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
               NSLog(@"Do some work");

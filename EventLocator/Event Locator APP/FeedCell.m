@@ -7,13 +7,17 @@
 
 
 @import Parse;
+#import <ChameleonFramework/Chameleon.h>
 
+#import <Foundation/Foundation.h>
 #import "FeedCell.h"
 
 @implementation FeedCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.feedcell.backgroundColor = FlatGreen;
+    
     // Initialization code
 }
 

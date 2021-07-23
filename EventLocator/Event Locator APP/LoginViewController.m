@@ -9,6 +9,8 @@
 
 #import "LoginViewController.h"
 
+#import <ChameleonFramework/Chameleon.h>
+
 
 #import "Parse/Parse.h"
 
@@ -18,13 +20,29 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordLogin;
 
+@property(weak, nonatomic) NSArray *colors;
+
 @end
 
 @implementation LoginViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = RandomFlatColor;
     
+    RandomFlatColorWithShade(UIShadeStyleLight);
+    
+    //GradientColor(gradientStyle, frame, colors);
+   // [color lightenByPercentage:(CGFloat)percentage];
+
+//
+//    self.view.backgroundColor = [UIColor randomFlatColor];
+//
+//    RandomFlatColorWithShade(UIShadeStyleLight);
+//
+//    [UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
+//
     
     // Do any additional setup after loading the view.
 }

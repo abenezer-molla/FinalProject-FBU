@@ -5,6 +5,9 @@
 //  Created by abenezermolla on 7/13/21.
 //
 
+
+
+#import <ChameleonFramework/Chameleon.h>
 #import "ChatViewController.h"
 #import <Parse/Parse.h>
 #import "ChatCell.h"
@@ -41,6 +44,10 @@ InfinteScrolls* loadingMoreView2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableViewChat.backgroundColor = FlatGray;
+    
+    RandomFlatColorWithShade(UIShadeStyleLight);
     
     self.tableViewChat.dataSource = self;
     
@@ -190,7 +197,7 @@ InfinteScrolls* loadingMoreView2;
             loadingMoreView2.frame = frame2;
             [loadingMoreView2 startAnimating];
             
-            NSTimeInterval delayInSeconds = 2.0;
+            NSTimeInterval delayInSeconds = 0.1;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
               NSLog(@"Do some work");
