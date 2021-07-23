@@ -31,10 +31,13 @@
 
 
 - (void)setPost:(Post *)post {
-    self.feedProfileImage.file = post.image;
+    
+    //NSLog(@"%@", post.imageProfile);
+    self.feedProfileImage.file = post.imageProfile;
     self.feedPostImage.file = post.image;
     
     [self.feedPostImage loadInBackground];
+    [self.feedProfileImage loadInBackground];
     self.feedCaption.text = post.caption;
     self.likeCountFeed.text = post.likeCount.stringValue;
     

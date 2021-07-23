@@ -13,6 +13,8 @@
 
 #import "AppDelegate.h"
 
+#import "Post.h"
+
 #import "FeedCell.h"
 
 #import "Parse/Parse.h"
@@ -35,6 +37,7 @@
 @property (nonatomic) BOOL isMoreDataLoading;
 @property (nonatomic) int skipCount;
 
+@property (weak, nonatomic) IBOutlet UIImageView *toSaveTheProfilePic;
 
 @end
 
@@ -83,6 +86,67 @@ InfinteScrolls* loadingMoreView;
     
     [self refreshData];
 
+}
+
+
+- (IBAction)didTapSelectProfileButton:(id)sender {
+    
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
+   
+}
+
+
+- (IBAction)didTapShareProfile:(id)sender {
+//    
+    [Post postUserProfileImage: self.toSaveTheProfilePic.image withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        
+        if(succeeded){
+            
+            NSLog(@"Yay");
+        } else{
+            
+            NSLog(@"Nope");
+        }
+    }];
+}
+
+
+
+
+
+- (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
+    UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
+    
+    resizeImageView.contentMode = UIViewContentModeScaleAspectFill;
+    resizeImageView.image = image;
+    
+    UIGraphicsBeginImageContext(size);
+    [resizeImageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    
+    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+    self.toSaveTheProfilePic.image = [self resizeImage:editedImage withSize:CGSizeMake(300, 300)];
+    // Do something with the images (based on your use case)
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    //[self performSegueWithIdentifier:@"tagSegue" sender:self];
 }
 
 
@@ -142,6 +206,13 @@ InfinteScrolls* loadingMoreView;
     [self.tableView reloadData];
 
 }
+
+
+- (IBAction)gestureOnFeedTapped:(id)sender {
+    
+    [self.view endEditing:true];
+}
+
 
 
 
