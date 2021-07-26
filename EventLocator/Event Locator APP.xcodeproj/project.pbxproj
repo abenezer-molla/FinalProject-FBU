@@ -214,7 +214,6 @@
 			isa = PBXGroup;
 			children = (
 				29A117E3269CE9B800702878 /* Assets.xcassets */,
-				29A117E8269CE9B800702878 /* Info.plist */,
 				29A117E9269CE9B800702878 /* main.m */,
 				29A117D7269CE9B700702878 /* AppDelegate.h */,
 				29A117D8269CE9B700702878 /* AppDelegate.m */,
@@ -258,6 +257,7 @@
 		29A117D6269CE9B700702878 /* Event Locator APP */ = {
 			isa = PBXGroup;
 			children = (
+				29A117E8269CE9B800702878 /* Info.plist */,
 				2956033F26AF1CB9007BD0AF /* Storyboards */,
 				2956033E26AF1CB0007BD0AF /* Core */,
 				2956033D26AF074D007BD0AF /* View Controller */,

@@ -8,10 +8,9 @@
 
 
 #import "LoginViewController.h"
-
 #import <ChameleonFramework/Chameleon.h>
-
-
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "Parse/Parse.h"
 
 @interface LoginViewController ()
@@ -30,21 +29,24 @@
     self.view.backgroundColor = RandomFlatColor;
     
     RandomFlatColorWithShade(UIShadeStyleLight);
+    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+    //Place the button in the center of my view.
+    loginButton.center = self.view.center;
+    loginButton.delegate = self;
+    [self.view addSubview:loginButton];
+    loginButton.permissions = @[@"public_profile", @"email"];
 
 }
 
 - (IBAction)loginTapped:(id)sender {
     [self loginUser];
-    
-    
+        
 }
 
 - (IBAction)tapGesture:(id)sender {
     
     [self.view endEditing:true];
 }
-
-
 
 
 - (IBAction)signupTapped:(id)sender {
@@ -84,14 +86,9 @@
 }
 
 
-
-
-
-
 - (void)registerUser {
     // initialize a user object
     PFUser *newUser = [PFUser user];
-    
     // set user properties
     newUser.username = self.usernameLogin.text;
     //newUser.email = self.usernameField.text;
@@ -108,7 +105,6 @@
         }
     }];
 }
-
 
 
 - (void)loginUser {
@@ -137,6 +133,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void)loginButton:(nonnull FBSDKLoginButton *)loginButton didCompleteWithResult:(nullable FBSDKLoginManagerLoginResult *)result error:(nullable NSError *)error {
+    if (error != nil) {
+        NSLog(@"User log in failed: %@", error.localizedDescription);
+    } else {
+        NSLog(@"User logged in successfully");
+        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+    }
+    
+}
+
+- (void)loginButtonDidLogOut:(nonnull FBSDKLoginButton *)loginButton {
+    
+}
 
 @end
 

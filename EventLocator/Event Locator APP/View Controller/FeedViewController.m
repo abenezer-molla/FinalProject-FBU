@@ -29,6 +29,14 @@
 
 #import "CommentsCell.h"
 
+#import <FBSDKCoreKit/FBSDKProfile.h>
+
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+
+#import <FBSDKLoginKit/FBSDKLoginManager.h>
+
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *feeds;
@@ -54,6 +62,32 @@ InfinteScrolls* loadingMoreView;
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile * _Nullable profile, NSError * _Nullable error) {
+            if (profile) {
+                self.navigationItem.title = [NSString stringWithFormat:@"Hello %@ %@", profile.firstName, profile.lastName];
+                NSURL *url = [profile imageURLForPictureMode:(FBSDKProfilePictureModeSquare) size:(CGSizeMake(35, 35))];
+                UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+                
+                UIView *profileView =  [[UIView alloc]initWithFrame:(CGRectMake(0, 0, 35, 35))];
+                
+                profileView.layer.cornerRadius = profileView.frame.size.width/2;
+                profileView.clipsToBounds = YES;
+                profileView.userInteractionEnabled = YES;
+                
+                UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
+                [profileView addSubview:imageView];
+                UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]initWithCustomView:profileView];
+                self.navigationItem.leftBarButtonItem = buttonItem;
+                
+            }
+        }];
+        
+        
+    });
+    
     
     self.skipCount = 2;
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -207,12 +241,18 @@ InfinteScrolls* loadingMoreView;
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
     }];
-//    [self dismissViewControllerAnimated:YES completion:nil];
         SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
         // Logging out and swtiching to login view controller
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     myDelegate.window.rootViewController = loginViewController;
+    
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    [loginManager logOut];
+     
+}
+
+- (void)loginButtonDidLogOut:(nonnull FBSDKLoginButton *)loginButton {
     
 }
 
@@ -295,15 +335,6 @@ InfinteScrolls* loadingMoreView;
 
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
  
@@ -318,8 +349,25 @@ InfinteScrolls* loadingMoreView;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.feeds.count;    
+    return self.feeds.count;
 }
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+
+
+
+
 
 @end
 

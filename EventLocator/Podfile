@@ -12,6 +12,7 @@ target 'Event Locator APP' do
     pod 'ChameleonFramework'
     pod 'MGSwipeTableCell'
     pod 'DateTools'
+    pod 'FBSDKLoginKit'
 
 
 
