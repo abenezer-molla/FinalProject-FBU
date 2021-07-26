@@ -210,6 +210,29 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
+		2956033E26AF1CB0007BD0AF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				29A117E3269CE9B800702878 /* Assets.xcassets */,
+				29A117E8269CE9B800702878 /* Info.plist */,
+				29A117E9269CE9B800702878 /* main.m */,
+				29A117D7269CE9B700702878 /* AppDelegate.h */,
+				29A117D8269CE9B700702878 /* AppDelegate.m */,
+				29A117DA269CE9B700702878 /* SceneDelegate.h */,
+				29A117DB269CE9B700702878 /* SceneDelegate.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2956033F26AF1CB9007BD0AF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				29A117E5269CE9B800702878 /* LaunchScreen.storyboard */,
+				29A117E0269CE9B700702878 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		29A117CB269CE9B700702878 = {
 			isa = PBXGroup;
 			children = (
@@ -235,15 +258,8 @@
 		29A117D6269CE9B700702878 /* Event Locator APP */ = {
 			isa = PBXGroup;
 			children = (
-				29A117E3269CE9B800702878 /* Assets.xcassets */,
-				29A117E5269CE9B800702878 /* LaunchScreen.storyboard */,
-				29A117E8269CE9B800702878 /* Info.plist */,
-				29A117E9269CE9B800702878 /* main.m */,
-				29A117D7269CE9B700702878 /* AppDelegate.h */,
-				29A117D8269CE9B700702878 /* AppDelegate.m */,
-				29A117DA269CE9B700702878 /* SceneDelegate.h */,
-				29A117DB269CE9B700702878 /* SceneDelegate.m */,
-				29A117E0269CE9B700702878 /* Main.storyboard */,
+				2956033F26AF1CB9007BD0AF /* Storyboards */,
+				2956033E26AF1CB0007BD0AF /* Core */,
 				2956033D26AF074D007BD0AF /* View Controller */,
 				2956033C26AF0740007BD0AF /* Views */,
 				2956033B26AF0724007BD0AF /* Models */,

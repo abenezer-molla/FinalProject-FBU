@@ -62,14 +62,14 @@ return @"Post";
 
 - (void)like {
     [self.likedByUsername addObject:PFUser.currentUser.objectId];
-    [self setObject:self.likedByUsername forKey:@"likedByUsername"];
+    [self addObject:self.likedByUsername forKey:@"likedByUsername"];
     [self saveInBackground];
 }
 
 
 - (void)unlike {
     [self.likedByUsername removeObject:PFUser.currentUser.objectId];
-    [self setObject:self.likedByUsername forKey:@"likedByUsername"];
+    [self addObject:self.likedByUsername forKey:@"likedByUsername"];
     [self saveInBackground];
     NSLog(@"Liked");
 }
