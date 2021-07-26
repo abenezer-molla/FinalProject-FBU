@@ -11,6 +11,7 @@ target 'Event Locator APP' do
     pod 'Parse/UI'
     pod 'ChameleonFramework'
     pod 'MGSwipeTableCell'
+    pod 'DateTools'
 
 
 

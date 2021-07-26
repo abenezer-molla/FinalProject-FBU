@@ -157,6 +157,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		2956033B26AF0724007BD0AF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				29DD973A26A0F1ED00D4A526 /* PhotoAnnotation.h */,
+				29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */,
+				29976BD026A745C300CF2640 /* InfinteScrolls.h */,
+				29976BD126A745C300CF2640 /* InfinteScrolls.m */,
+				298D70FA26A8E4F600DDAED7 /* Comment.h */,
+				298D70FB26A8E4F600DDAED7 /* Comment.m */,
+				293349C3269F7377006E0327 /* Post.h */,
+				293349C4269F7377006E0327 /* Post.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2956033C26AF0740007BD0AF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				291A2C6D26A8D7B6005E847C /* CommentsCell.h */,
+				291A2C6E26A8D7B6005E847C /* CommentsCell.m */,
+				29DD973526A0EC5900D4A526 /* LocationCell.h */,
+				29DD973626A0EC5900D4A526 /* LocationCell.m */,
+				29A1181E269E1CA900702878 /* ChatCell.h */,
+				29A1181F269E1CA900702878 /* ChatCell.m */,
+				29A1180F269E17C900702878 /* FeedCell.h */,
+				29A11810269E17C900702878 /* FeedCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2956033D26AF074D007BD0AF /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				29A11815269E188000702878 /* FeedViewController.h */,
+				29A11816269E188000702878 /* FeedViewController.m */,
+				291A2C6726A8D6C5005E847C /* commentViewController.h */,
+				291A2C6826A8D6C5005E847C /* commentViewController.m */,
+				29A11818269E1C5900702878 /* ChatViewController.h */,
+				29A11819269E1C5900702878 /* ChatViewController.m */,
+				29A11821269E617900702878 /* LoginViewController.h */,
+				29A11822269E617900702878 /* LoginViewController.m */,
+				293349C0269F712F006E0327 /* ComposeViewController.h */,
+				293349C1269F712F006E0327 /* ComposeViewController.m */,
+				29DD972C26A0EA3E00D4A526 /* PhotoMapViewController.h */,
+				29DD972D26A0EA3E00D4A526 /* PhotoMapViewController.m */,
+				29DD972F26A0EA6200D4A526 /* FullImageViewController.h */,
+				29DD973026A0EA6200D4A526 /* FullImageViewController.m */,
+				29DD973226A0EA7200D4A526 /* LocationTagViewController.h */,
+				29DD973326A0EA7200D4A526 /* LocationTagViewController.m */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		29A117CB269CE9B700702878 = {
 			isa = PBXGroup;
 			children = (
@@ -182,47 +235,18 @@
 		29A117D6269CE9B700702878 /* Event Locator APP */ = {
 			isa = PBXGroup;
 			children = (
+				29A117E3269CE9B800702878 /* Assets.xcassets */,
+				29A117E5269CE9B800702878 /* LaunchScreen.storyboard */,
+				29A117E8269CE9B800702878 /* Info.plist */,
+				29A117E9269CE9B800702878 /* main.m */,
 				29A117D7269CE9B700702878 /* AppDelegate.h */,
 				29A117D8269CE9B700702878 /* AppDelegate.m */,
 				29A117DA269CE9B700702878 /* SceneDelegate.h */,
 				29A117DB269CE9B700702878 /* SceneDelegate.m */,
 				29A117E0269CE9B700702878 /* Main.storyboard */,
-				29A117E3269CE9B800702878 /* Assets.xcassets */,
-				29A117E5269CE9B800702878 /* LaunchScreen.storyboard */,
-				29A117E8269CE9B800702878 /* Info.plist */,
-				29A117E9269CE9B800702878 /* main.m */,
-				29A1180F269E17C900702878 /* FeedCell.h */,
-				29A11810269E17C900702878 /* FeedCell.m */,
-				29A11815269E188000702878 /* FeedViewController.h */,
-				29A11816269E188000702878 /* FeedViewController.m */,
-				29A11818269E1C5900702878 /* ChatViewController.h */,
-				29A11819269E1C5900702878 /* ChatViewController.m */,
-				29A1181E269E1CA900702878 /* ChatCell.h */,
-				29A1181F269E1CA900702878 /* ChatCell.m */,
-				29A11821269E617900702878 /* LoginViewController.h */,
-				29A11822269E617900702878 /* LoginViewController.m */,
-				293349C0269F712F006E0327 /* ComposeViewController.h */,
-				293349C1269F712F006E0327 /* ComposeViewController.m */,
-				293349C3269F7377006E0327 /* Post.h */,
-				293349C4269F7377006E0327 /* Post.m */,
-				29DD972C26A0EA3E00D4A526 /* PhotoMapViewController.h */,
-				29DD972D26A0EA3E00D4A526 /* PhotoMapViewController.m */,
-				29DD972F26A0EA6200D4A526 /* FullImageViewController.h */,
-				29DD973026A0EA6200D4A526 /* FullImageViewController.m */,
-				29DD973226A0EA7200D4A526 /* LocationTagViewController.h */,
-				29DD973326A0EA7200D4A526 /* LocationTagViewController.m */,
-				29DD973526A0EC5900D4A526 /* LocationCell.h */,
-				29DD973626A0EC5900D4A526 /* LocationCell.m */,
-				29DD973A26A0F1ED00D4A526 /* PhotoAnnotation.h */,
-				29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */,
-				29976BD026A745C300CF2640 /* InfinteScrolls.h */,
-				29976BD126A745C300CF2640 /* InfinteScrolls.m */,
-				291A2C6726A8D6C5005E847C /* commentViewController.h */,
-				291A2C6826A8D6C5005E847C /* commentViewController.m */,
-				291A2C6D26A8D7B6005E847C /* CommentsCell.h */,
-				291A2C6E26A8D7B6005E847C /* CommentsCell.m */,
-				298D70FA26A8E4F600DDAED7 /* Comment.h */,
-				298D70FB26A8E4F600DDAED7 /* Comment.m */,
+				2956033D26AF074D007BD0AF /* View Controller */,
+				2956033C26AF0740007BD0AF /* Views */,
+				2956033B26AF0724007BD0AF /* Models */,
 			);
 			path = "Event Locator APP";
 			sourceTree = "<group>";
