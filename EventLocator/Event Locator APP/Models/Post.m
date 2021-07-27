@@ -20,6 +20,7 @@
 @dynamic commentCount;
 @dynamic likedByUsername;
 @dynamic imageProfile;
+@dynamic likeRelation;
 
 + (nonnull NSString *)parseClassName {
 return @"Post";
@@ -46,32 +47,26 @@ return @"Post";
 
 }
 
-+ (Post*) likePost:(Post*)post{
-    if (post.likedByUsername == nil){
-        post.likedByUsername = [[NSArray alloc]init];
-    }
 
-    [post.likedByUsername addObject:PFUser.currentUser.objectId];
-    [post setObject:post.likedByUsername forKey:@"likedByUsername"];
-    [post saveInBackground];
-    
-    NSLog(@"Liked");
 
-    return post;
-}
++ (void)like: (Post *)post withUser:(PFUser *)user withCompletion: (PFBooleanResultBlock) completion {
+    PFRelation *likeRelation = [post relationForKey:@"likeRelation"];
 
-- (void)like {
-    [self.likedByUsername addObject:PFUser.currentUser.objectId];
-    [self addObject:self.likedByUsername forKey:@"likedByUsername"];
-    [self saveInBackground];
+        
+        [likeRelation addObject:user];
+    NSLog(@"Like Method Called!%@", user);
+        float likeCount = [post.likeCount doubleValue];
+        post.likeCount = [NSNumber numberWithFloat:likeCount + 1];
+        [post saveInBackgroundWithBlock:completion];
 }
 
 
-- (void)unlike {
-    [self.likedByUsername removeObject:PFUser.currentUser.objectId];
-    [self addObject:self.likedByUsername forKey:@"likedByUsername"];
-    [self saveInBackground];
-    NSLog(@"Liked");
++ (void)unlikePost:(Post *)post withUser:(PFUser *)user withCompletion:(PFBooleanResultBlock)completion {
+    PFRelation *likeRelation = [post relationForKey:@"likeRelation"];
+    [likeRelation removeObject:user];
+    float likeCount = [post.likeCount doubleValue];
+    post.likeCount = [NSNumber numberWithFloat:likeCount - 1];
+    [post saveInBackgroundWithBlock: completion];
 }
 
 

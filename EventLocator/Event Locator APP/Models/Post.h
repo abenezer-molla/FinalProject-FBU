@@ -21,12 +21,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *commentCount;
 @property (nonatomic, strong) NSMutableArray *likedByUsername;
 
+@property (nonatomic, strong) PFRelation *likeRelation;
+
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void) postUserProfileImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
-- (void) like;
-- (void) unlike;
++ (void)like: (Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion: (PFBooleanResultBlock) completion;
+
++ (void)unlikePost:(Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion:(PFBooleanResultBlock) completion;
 
 //+ (Post*_Nonnull) likePost:(Post*_Nonnull)post;
 

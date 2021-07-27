@@ -342,7 +342,10 @@ InfinteScrolls* loadingMoreView;
     cell.layer.cornerRadius = 35; // uses external library
     cell.clipsToBounds = true;
     Post *post = self.feeds[indexPath.row];
+    
+    //NSLog(@"%@", self.feeds);
     [cell setPost:post];
+    cell.post = self.feeds[indexPath.row];
     
     return cell;
         

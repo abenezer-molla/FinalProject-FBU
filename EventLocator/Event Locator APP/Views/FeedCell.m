@@ -32,6 +32,7 @@
 
 - (void)setPost:(Post *)post {
 
+    _post = post;
     self.feedPostImage.file = post.image;
     self.feedProfileImage.file = post.image;
     self.feedProfileImage.clipsToBounds = YES;
@@ -63,12 +64,14 @@
         self.feedDateStamp.text = date.shortTimeAgoSinceNow;
     }
     self.likeButton.selected = [self.post.likedByUsername containsObject:PFUser.currentUser.objectId];
+    
     [self updateLikeButton];
+    //NSLog(@" end: %@", post);
     
 }
 
 -(void)updateLikeButton{
-    if ([self.post.likedByUsername containsObject: PFUser.currentUser.objectId]){
+    if (self.likeButton.selected == true){
         self.likeButton.tintColor = UIColor.redColor;
         [self.likeButton setImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
     }else{
@@ -78,26 +81,44 @@
 }
 
 - (IBAction)didTapLikeButton:(id)sender {
+    //NSLog(@"%@", self.post.author);
     
+    PFUser * user = [PFUser currentUser];
+    //NSLog(@" post 1 is : %@", _post);
     if(self.likeButton.selected){
         self.likeButton.selected = false;
         [self.likeButton setSelected:NO];
-        self.post.likeCount = [NSNumber numberWithInteger:([self.post.likeCount intValue] - 1)];
-        [self.post unlike];
+        [Post unlikePost:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(succeeded){
+                NSLog(@"Yay");
+            } else{
+                NSLog(@"Nope");
+            }
+        }];
+        [self updateLikeButton];
         
     } else if(!self.likeButton.selected) {
         self.likeButton.selected = true;
         [self.likeButton setSelected:YES];
-        self.post.likeCount = [NSNumber numberWithInteger:([self.post.likeCount intValue] + 1)];
-        if(!self.post.likedByUsername) {
-            self.post.likedByUsername = [NSMutableArray new];
-        }
-        [self.post like];
+        [Post like:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(succeeded){
+                NSLog(@"Yay");
+            } else{
+                
+                NSLog(@"Nope");
+            }
+                    
+        }];
+        
         [self updateLikeButton];
 
     }
     self.likeCountFeed.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
+    
 }
 
 
+
+    
 @end
+    

@@ -86,11 +86,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="key.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ImW-ot-Vth">
-                                <rect key="frame" x="156" y="468.5" width="85" height="135"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -112,7 +107,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="773.91304347826087" y="-2385.2678571428569"/>
+            <point key="canvasLocation" x="1214.4927536231885" y="-2385.2678571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1fw-vu-z52">
@@ -826,7 +821,6 @@
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="key.fill" catalog="system" width="83" height="128"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="location.viewfinder" catalog="system" width="128" height="115"/>
         <image name="mappin" catalog="system" width="105" height="128"/>
