@@ -302,21 +302,17 @@
                                                     <color key="highlightedColor" red="0.80995315313339233" green="0.28025960125907334" blue="0.067901645661340979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qt-b4-fbM">
-                                                    <rect key="frame" x="366" y="77" width="39" height="22"/>
+                                                    <rect key="frame" x="346" y="40" width="39" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Button" image="heart.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="didTapLikeChat:" destination="Bna-Wj-Jxv" eventType="touchUpInside" id="tBy-ep-N6h"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="07/12/21" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uLG-Gs-faX">
                                                     <rect key="frame" x="323" y="14" width="71" height="18"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mi8-tD-hu2">
-                                                    <rect key="frame" x="331" y="76" width="27" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -331,7 +327,7 @@
                                             <outlet property="chatPageUsername" destination="44h-aL-bBp" id="1TA-YI-bij"/>
                                             <outlet property="chatTextLabel" destination="eMP-0O-6nq" id="drl-UZ-YBi"/>
                                             <outlet property="chatTitle" destination="Wfc-5T-4JF" id="7gi-vK-4gH"/>
-                                            <outlet property="likeCountChat" destination="Mi8-tD-hu2" id="Ehk-Bh-neV"/>
+                                            <outlet property="likeButtonChat" destination="7qt-b4-fbM" id="kj9-ON-5c5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

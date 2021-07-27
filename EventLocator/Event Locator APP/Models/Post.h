@@ -31,8 +31,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)unlikePost:(Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion:(PFBooleanResultBlock) completion;
 
-//+ (Post*_Nonnull) likePost:(Post*_Nonnull)post;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -11,6 +11,8 @@
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
+#import "FeedViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -34,6 +36,7 @@
   
   [[FBSDKApplicationDelegate sharedInstance] application:application
                            didFinishLaunchingWithOptions:launchOptions];
+
   return YES;
 }
 

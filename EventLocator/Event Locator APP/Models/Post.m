@@ -7,6 +7,8 @@
 
 #import "Post.h"
 
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
 @implementation Post
 
 
@@ -54,7 +56,6 @@ return @"Post";
 
         
         [likeRelation addObject:user];
-    NSLog(@"Like Method Called!%@", user);
         float likeCount = [post.likeCount doubleValue];
         post.likeCount = [NSNumber numberWithFloat:likeCount + 1];
         [post saveInBackgroundWithBlock:completion];

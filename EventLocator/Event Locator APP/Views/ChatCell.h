@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Chat.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *chatTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *chatDateStamp;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountChat;
+@property (weak, nonatomic) IBOutlet UIButton *likeButtonChat;
+
 
 @end
 

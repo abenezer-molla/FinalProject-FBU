@@ -185,6 +185,9 @@ InfinteScrolls* loadingMoreView2;
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     chatCell.layer.cornerRadius = 35;
     chatCell.clipsToBounds = true;
+    
+//    Chat *chat = self.filteredChats[indexPath.row];
+    //[chatCell setPost:chat];
     chatCell.chatTextLabel.text = self.filteredChats[indexPath.row][@"text"];
     chatCell.chatTitle.text = self.filteredChats[indexPath.row][@"title"];
 
@@ -192,8 +195,7 @@ InfinteScrolls* loadingMoreView2;
         chatCell.chatPageUsername.text = self.filteredChats[indexPath.row][@"user"][@"username"];
     }else{
         chatCell.chatPageUsername.text = @"Anon";
-    }
-    
+    }    
     return chatCell;
 }
 

@@ -32,6 +32,7 @@
 		29DD973726A0EC5900D4A526 /* LocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973626A0EC5900D4A526 /* LocationCell.m */; };
 		29DD973926A0EEEA00D4A526 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29DD973826A0EEE900D4A526 /* MapKit.framework */; };
 		29DD973C26A0F1ED00D4A526 /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */; };
+		29FD93BD26AFCCE90089E432 /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FD93BC26AFCCE90089E432 /* Chat.m */; };
 		5A6A08839B6926C299C1CD0C /* Pods_Event_Locator_APP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBBB900B0C3B2F3EC7701480 /* Pods_Event_Locator_APP.framework */; };
 		94A4764CEFE6D523EAFF7EE9 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */; };
 		A121C492F906336BA5D36954 /* Pods_Event_Locator_APPTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B2E72A1D97DDE28A7E1A2D /* Pods_Event_Locator_APPTests.framework */; };
@@ -106,6 +107,8 @@
 		29DD973826A0EEE900D4A526 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		29DD973A26A0F1ED00D4A526 /* PhotoAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoAnnotation.h; sourceTree = "<group>"; };
 		29DD973B26A0F1ED00D4A526 /* PhotoAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoAnnotation.m; sourceTree = "<group>"; };
+		29FD93BB26AFCCE90089E432 /* Chat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chat.h; sourceTree = "<group>"; };
+		29FD93BC26AFCCE90089E432 /* Chat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chat.m; sourceTree = "<group>"; };
 		41045868FAD75BBBB3AB5B43 /* Pods_Event_Locator_APP_Event_Locator_APPUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Event_Locator_APP_Event_Locator_APPUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836A9AD1E9282490D9B8E7EC /* Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP-Event Locator APPUITests/Pods-Event Locator APP-Event Locator APPUITests.release.xcconfig"; sourceTree = "<group>"; };
 		85021AF8616A324979041AC1 /* Pods-Event Locator APP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Event Locator APP.release.xcconfig"; path = "Target Support Files/Pods-Event Locator APP/Pods-Event Locator APP.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				298D70FB26A8E4F600DDAED7 /* Comment.m */,
 				293349C3269F7377006E0327 /* Post.h */,
 				293349C4269F7377006E0327 /* Post.m */,
+				29FD93BB26AFCCE90089E432 /* Chat.h */,
+				29FD93BC26AFCCE90089E432 /* Chat.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				29DD973726A0EC5900D4A526 /* LocationCell.m in Sources */,
 				291A2C6926A8D6C5005E847C /* commentViewController.m in Sources */,
 				29A11811269E17C900702878 /* FeedCell.m in Sources */,
+				29FD93BD26AFCCE90089E432 /* Chat.m in Sources */,
 				29DD973C26A0F1ED00D4A526 /* PhotoAnnotation.m in Sources */,
 				29A11820269E1CA900702878 /* ChatCell.m in Sources */,
 				291A2C6F26A8D7B6005E847C /* CommentsCell.m in Sources */,

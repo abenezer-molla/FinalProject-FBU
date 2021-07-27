@@ -8,6 +8,7 @@
 #import "SceneDelegate.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "Parse/Parse.h"
+#import "FeedViewController.h"
 
 @interface SceneDelegate ()
 
@@ -23,7 +24,7 @@
                                      sourceApplication:context.options.sourceApplication
                                             annotation:context.options.annotation];
 }
-    
+ 
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions {
@@ -31,7 +32,15 @@
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     
+    if([FBSDKAccessToken currentAccessToken]){
+        //Apply user persistence
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *chatNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+        self.window.rootViewController = chatNavigationController;
+        
+    }
     PFUser *user = [PFUser currentUser];
+    
     if (user != nil) {
         NSLog(@"Welcome back %@ 😀", user.username);
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

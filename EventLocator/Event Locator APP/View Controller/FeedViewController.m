@@ -37,12 +37,16 @@
 
 #import <FBSDKLoginKit/FBSDKLoginManager.h>
 
+#import <DateTools/DateTools.h>
+
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *feeds;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (nonatomic) BOOL isMoreDataLoading;
 @property (nonatomic) int skipCount;
+@property (assign, nonatomic) BOOL isDragging;
+@property (strong, nonatomic) NSDate *_Nullable dateOfLastLoadedPost;
 @property (weak, nonatomic) IBOutlet UIImageView *toSaveTheProfilePic;
 
 @end
@@ -179,8 +183,14 @@ InfinteScrolls* loadingMoreView;
     postQuery.limit = 3;
     // fetch data asynchronously
     [self.tableView reloadData];
+
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Post *> * _Nullable posts, NSError * _Nullable error) {
         if (posts) {
+            
+            self.feeds = posts;
+            if (self.feeds.count > 0) {
+                self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
+            }
             // do something with the data fetched
             self.feeds = (NSMutableArray*)posts;
             [self.tableView reloadData];
@@ -256,10 +266,13 @@ InfinteScrolls* loadingMoreView;
     
 }
 
-
 - (void)_loadMoreData {
-    
+   
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    //NSDate *now = [NSDate now];
+    if (self.dateOfLastLoadedPost != nil) {
+        [query whereKey:@"createdAt" lessThan:self.dateOfLastLoadedPost];
+    }
     query.limit = 3 * self.skipCount;
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
@@ -269,7 +282,7 @@ InfinteScrolls* loadingMoreView;
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
             //NSLog(@"%d",posts.count);
-            NSLog(@"Posts added to array:  %lu", (unsigned long)self.feeds.count);
+            NSLog(@"Total elements in the array :  %lu", (unsigned long)self.feeds.count);
             self.isMoreDataLoading = false;
             self.feeds = (NSMutableArray *)posts;
             [self.tableView reloadData];
@@ -324,7 +337,7 @@ InfinteScrolls* loadingMoreView;
             NSTimeInterval delayInSeconds = 0.1;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-              NSLog(@"Do some work");
+
                 [self _loadMoreData];
             });
             
@@ -333,8 +346,15 @@ InfinteScrolls* loadingMoreView;
     }
 }
 
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//    self.isDragging = false;
+//}
+//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+//    self.isDragging = true;
+//}
 
 
+#pragma mark - UITableViewDelegate
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
  
@@ -342,8 +362,6 @@ InfinteScrolls* loadingMoreView;
     cell.layer.cornerRadius = 35; // uses external library
     cell.clipsToBounds = true;
     Post *post = self.feeds[indexPath.row];
-    
-    //NSLog(@"%@", self.feeds);
     [cell setPost:post];
     cell.post = self.feeds[indexPath.row];
     
@@ -355,8 +373,6 @@ InfinteScrolls* loadingMoreView;
     return self.feeds.count;
 }
 
-
-
 /*
 #pragma mark - Navigation
 
@@ -366,11 +382,6 @@ InfinteScrolls* loadingMoreView;
     // Pass the selected object to the new view controller.
 }
 */
-
-
-
-
-
 
 @end
 

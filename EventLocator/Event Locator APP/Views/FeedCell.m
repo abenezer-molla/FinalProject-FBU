@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 #import <DateTools/DateTools.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "FeedCell.h"
 #import "Post.h"
 
@@ -83,38 +84,72 @@
 - (IBAction)didTapLikeButton:(id)sender {
     //NSLog(@"%@", self.post.author);
     
-    PFUser * user = [PFUser currentUser];
-    //NSLog(@" post 1 is : %@", _post);
-    if(self.likeButton.selected){
-        self.likeButton.selected = false;
-        [self.likeButton setSelected:NO];
-        [Post unlikePost:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(succeeded){
-                NSLog(@"Yay");
-            } else{
-                NSLog(@"Nope");
-            }
-        }];
-        [self updateLikeButton];
-        
-    } else if(!self.likeButton.selected) {
-        self.likeButton.selected = true;
-        [self.likeButton setSelected:YES];
-        [Post like:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-            if(succeeded){
-                NSLog(@"Yay");
-            } else{
-                
-                NSLog(@"Nope");
-            }
-                    
-        }];
-        
-        [self updateLikeButton];
 
+    if([FBSDKAccessToken currentAccessToken]){
+        PFUser * userID = [PFUser currentUser];
+        if(self.likeButton.selected){
+            self.likeButton.selected = false;
+            [self.likeButton setSelected:NO];
+            [Post unlikePost:_post withUser:userID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Yay");
+                } else{
+                    NSLog(@"Nope");
+                }
+            }];
+            [self updateLikeButton];
+            
+        } else if(!self.likeButton.selected) {
+            self.likeButton.selected = true;
+            [self.likeButton setSelected:YES];
+            [Post like:_post withUser:userID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Yay");
+                } else{
+                    NSLog(@"Nope");
+                }
+            }];
+            
+            [self updateLikeButton];
+
+        }
+               
+               
+    } else{
+        
+        PFUser * user = [PFUser currentUser];
+        //NSLog(@" post 1 is : %@", _post);
+        if(self.likeButton.selected){
+            self.likeButton.selected = false;
+            [self.likeButton setSelected:NO];
+            [Post unlikePost:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Yay");
+                } else{
+                    NSLog(@"Nope");
+                }
+            }];
+            [self updateLikeButton];
+            
+        } else if(!self.likeButton.selected) {
+            self.likeButton.selected = true;
+            [self.likeButton setSelected:YES];
+            [Post like:_post withUser:user withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+                if(succeeded){
+                    NSLog(@"Yay");
+                } else{
+                    NSLog(@"Nope");
+                }
+            }];
+            
+            [self updateLikeButton];
+
+        }
+               
     }
-    self.likeCountFeed.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
     
+
+    self.likeCountFeed.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
 }
 
 
