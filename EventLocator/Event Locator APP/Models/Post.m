@@ -50,7 +50,6 @@ return @"Post";
 }
 
 
-
 + (void)like: (Post *)post withUser:(PFUser *)user withCompletion: (PFBooleanResultBlock) completion {
     PFRelation *likeRelation = [post relationForKey:@"likeRelation"];
 
@@ -60,7 +59,6 @@ return @"Post";
         post.likeCount = [NSNumber numberWithFloat:likeCount + 1];
         [post saveInBackgroundWithBlock:completion];
 }
-
 
 + (void)unlikePost:(Post *)post withUser:(PFUser *)user withCompletion:(PFBooleanResultBlock)completion {
     PFRelation *likeRelation = [post relationForKey:@"likeRelation"];

@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *chatDateStamp;
 @property (weak, nonatomic) IBOutlet UILabel *likeCountChat;
 @property (weak, nonatomic) IBOutlet UIButton *likeButtonChat;
-@property (strong, nonatomic) ChatCell *chatCell;
+
 
 
 @end

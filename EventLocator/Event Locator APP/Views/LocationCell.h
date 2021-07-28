@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LocationCell : UITableViewCell
 
-
-
 - (void)updateWithLocation:(NSDictionary *)location;
 
 @end

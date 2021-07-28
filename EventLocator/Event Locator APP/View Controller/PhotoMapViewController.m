@@ -81,15 +81,8 @@ calloutAccessoryControlTapped:(UIControl *)control{
     }
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-    
-    
-    
+        
 }
-
-
-
-
-
 
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
@@ -124,8 +117,6 @@ calloutAccessoryControlTapped:(UIControl *)control{
     
     }
 }
-
-
 
 
 - (void)locationsViewController:(LocationTagViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude {

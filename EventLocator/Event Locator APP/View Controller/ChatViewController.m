@@ -108,6 +108,7 @@ InfinteScrolls* loadingMoreView2;
     [self.view endEditing:true];
 }
 
+
 - (void)refreshData2{
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];
@@ -130,16 +131,17 @@ InfinteScrolls* loadingMoreView2;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-    
-    
+        
     [self.tableViewChat reloadData];
 }
+
 
 - (void)_loadMoreData {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];
     if (self.dateOfLastLoadedPost != nil) {
         [query whereKey:@"createdAt" lessThan:self.dateOfLastLoadedPost];
+        //fetch posts that are recent than the last fetched/displayed post.
     }
     [query includeKey:@"user"];
     query.limit = 5* self.skipCount2;
@@ -195,7 +197,6 @@ InfinteScrolls* loadingMoreView2;
 }
 
 
-
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
@@ -204,24 +205,6 @@ InfinteScrolls* loadingMoreView2;
 
     chatCell.chatTextLabel.text = self.filteredChats[indexPath.row][@"text"];
     chatCell.chatTitle.text = self.filteredChats[indexPath.row][@"title"];
-    
-//    
-//    NSString *const createdAtOriginalString = [NSString stringWithFormat:@"%@", ((Post*) self.filteredChats).createdAt];
-//    //NSLog(@"%@", self.filteredChats[indexPath.row]);
-//    NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
-//    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
-//    NSDate *const date = [formatter dateFromString:createdAtOriginalString];
-//    NSDate *const now = [NSDate date];
-//    NSInteger timeApart = [now hoursFrom:date];
-//    
-//    if (timeApart >= 24) {
-//        formatter.dateStyle = NSDateFormatterShortStyle;
-//        formatter.timeStyle = NSDateFormatterNoStyle;
-//        chatCell.chatDateStamp.text = [formatter stringFromDate:date];
-//    }
-//    else {
-//        chatCell.chatDateStamp.text = date.shortTimeAgoSinceNow;
-//    }
 
     if(self.chats[indexPath.row][@"user"] != nil){
         chatCell.chatPageUsername.text = self.filteredChats[indexPath.row][@"user"][@"username"];
@@ -235,16 +218,5 @@ InfinteScrolls* loadingMoreView2;
     return self.filteredChats.count;
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

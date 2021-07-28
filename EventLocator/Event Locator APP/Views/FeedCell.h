@@ -12,6 +12,7 @@
 #import "Post.h"
 
 #import "Parse/Parse.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *typeComment;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) FeedCell *feedcell;
+
 @property (strong, nonatomic) Post *post;
 
 @end

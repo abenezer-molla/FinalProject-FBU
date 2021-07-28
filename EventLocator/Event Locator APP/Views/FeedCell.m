@@ -29,8 +29,6 @@
     // Configure the view for the selected state
 }
 
-
-
 - (void)setPost:(Post *)post {
 
     _post = post;
@@ -67,8 +65,6 @@
     self.likeButton.selected = [self.post.likedByUsername containsObject:PFUser.currentUser.objectId];
     
     [self updateLikeButton];
-    //NSLog(@" end: %@", post);
-    
 }
 
 -(void)updateLikeButton{
@@ -82,11 +78,11 @@
 }
 
 - (IBAction)didTapLikeButton:(id)sender {
-    //NSLog(@"%@", self.post.author);
     
-
     if([FBSDKAccessToken currentAccessToken]){
-        PFUser * userID = [PFUser currentUser];
+        
+        FBSDKAccessToken *userID = [FBSDKAccessToken currentAccessToken];
+        //PFUser * userID = [PFUser currentUser];
         if(self.likeButton.selected){
             self.likeButton.selected = false;
             [self.likeButton setSelected:NO];
@@ -111,14 +107,12 @@
             }];
             
             [self updateLikeButton];
-
         }
                
                
     } else{
         
         PFUser * user = [PFUser currentUser];
-        //NSLog(@" post 1 is : %@", _post);
         if(self.likeButton.selected){
             self.likeButton.selected = false;
             [self.likeButton setSelected:NO];

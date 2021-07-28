@@ -19,9 +19,6 @@
 
 @implementation LocationCell
 
-
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
@@ -32,8 +29,6 @@
 
     // Configure the view for the selected state
 }
-
-
 
 - (void)updateWithLocation:(NSDictionary *)location {
     self.locationTitle.text = location[@"name"];

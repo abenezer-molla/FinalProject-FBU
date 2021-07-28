@@ -6,37 +6,19 @@
 //
 
 #import <ChameleonFramework/Chameleon.h>
-
 #import <MGSwipeTableCell/MGSwipeTableCell.h>
-
 #import "FeedViewController.h"
-
 #import "AppDelegate.h"
-
 #import "Post.h"
-
 #import "FeedCell.h"
-
 #import "Parse/Parse.h"
-
 #import "SceneDelegate.h"
-
 #import "LoginViewController.h"
-
 #import "InfinteScrolls.h"
-
-#import "Comment.h"
-
-#import "CommentsCell.h"
-
 #import <FBSDKCoreKit/FBSDKProfile.h>
-
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-
 #import <FBSDKLoginKit/FBSDKLoginManager.h>
-
 #import <DateTools/DateTools.h>
 
 @interface FeedViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
@@ -132,6 +114,7 @@ InfinteScrolls* loadingMoreView;
     [self presentViewController:imagePickerVC animated:YES completion:nil];
    
 }
+
 
 -(void) logoutFromTapGesture{
     
@@ -380,15 +363,6 @@ InfinteScrolls* loadingMoreView;
     return self.feeds.count;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
 
