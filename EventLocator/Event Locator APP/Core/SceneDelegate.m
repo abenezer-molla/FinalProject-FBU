@@ -37,7 +37,7 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         UIViewController *chatNavigationController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
         self.window.rootViewController = chatNavigationController;
-        
+
     }
     PFUser *user = [PFUser currentUser];
     

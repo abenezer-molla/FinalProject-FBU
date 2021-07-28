@@ -5,8 +5,6 @@
 //  Created by abenezermolla on 7/13/21.
 //
 
-
-
 #import <ChameleonFramework/Chameleon.h>
 #import "ChatViewController.h"
 #import <Parse/Parse.h>
@@ -30,6 +28,8 @@
 @property (strong, nonatomic) NSArray *chats;
 @property (nonatomic) BOOL isMoreDataLoading2;
 @property (nonatomic) int skipCount2;
+@property (assign, nonatomic) BOOL isDragging;
+@property (strong, nonatomic) NSDate *_Nullable dateOfLastLoadedPost;
 
 @end
 
@@ -112,6 +112,7 @@ InfinteScrolls* loadingMoreView2;
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];
     [query includeKey:@"user"];
+    [query includeKey:@"createdAt"];
     query.limit = 5;
     [query orderByDescending:@"createdAt"];
     // fetch data asynchronously
@@ -120,6 +121,9 @@ InfinteScrolls* loadingMoreView2;
             // do something with the array of object returned by the call
             self.chats = posts;
             self.filteredChats = self.chats;
+            if (self.filteredChats.count > 0) {
+                self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
+            }
             [self.tableViewChat reloadData];
             [self.refreshControl endRefreshing];
         } else {
@@ -134,14 +138,19 @@ InfinteScrolls* loadingMoreView2;
 - (void)_loadMoreData {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Chats"];
+    if (self.dateOfLastLoadedPost != nil) {
+        [query whereKey:@"createdAt" lessThan:self.dateOfLastLoadedPost];
+    }
     [query includeKey:@"user"];
     query.limit = 5* self.skipCount2;
     [query orderByDescending:@"createdAt"];
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
+            NSLog(@"Total elements in the array :  %lu", (unsigned long)self.chats.count);
             // do something with the array of object returned by the call
             self.isMoreDataLoading2 = false;
+            NSLog(@"%@", posts[posts.count-1]);
             self.chats = (NSMutableArray*)posts;
             self.filteredChats = self.chats;
             [self.tableViewChat reloadData];
@@ -178,6 +187,13 @@ InfinteScrolls* loadingMoreView2;
     }
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    self.isDragging = false;
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isDragging = true;
+}
+
 
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
@@ -185,11 +201,27 @@ InfinteScrolls* loadingMoreView2;
     ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
     chatCell.layer.cornerRadius = 35;
     chatCell.clipsToBounds = true;
-    
-//    Chat *chat = self.filteredChats[indexPath.row];
-    //[chatCell setPost:chat];
+
     chatCell.chatTextLabel.text = self.filteredChats[indexPath.row][@"text"];
     chatCell.chatTitle.text = self.filteredChats[indexPath.row][@"title"];
+    
+//    
+//    NSString *const createdAtOriginalString = [NSString stringWithFormat:@"%@", ((Post*) self.filteredChats).createdAt];
+//    //NSLog(@"%@", self.filteredChats[indexPath.row]);
+//    NSDateFormatter *const formatter = [[NSDateFormatter alloc] init];
+//    formatter.dateFormat = @"YYYY-MM-dd HH:mm:ss z";
+//    NSDate *const date = [formatter dateFromString:createdAtOriginalString];
+//    NSDate *const now = [NSDate date];
+//    NSInteger timeApart = [now hoursFrom:date];
+//    
+//    if (timeApart >= 24) {
+//        formatter.dateStyle = NSDateFormatterShortStyle;
+//        formatter.timeStyle = NSDateFormatterNoStyle;
+//        chatCell.chatDateStamp.text = [formatter stringFromDate:date];
+//    }
+//    else {
+//        chatCell.chatDateStamp.text = date.shortTimeAgoSinceNow;
+//    }
 
     if(self.chats[indexPath.row][@"user"] != nil){
         chatCell.chatPageUsername.text = self.filteredChats[indexPath.row][@"user"][@"username"];

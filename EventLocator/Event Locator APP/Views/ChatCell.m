@@ -60,7 +60,6 @@
 //    
 //}
 
-
 -(void)updateLikeButton{
     if (self.likeButtonChat.selected == true){
         self.likeButtonChat.tintColor = UIColor.redColor;
@@ -70,7 +69,6 @@
         [self.likeButtonChat setImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
     }
 }
-
 
 - (IBAction)didTapLikeChat:(id)sender {
 

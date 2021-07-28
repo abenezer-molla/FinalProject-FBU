@@ -157,8 +157,6 @@ InfinteScrolls* loadingMoreView;
     return newImage;
 }
 
-
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     // Get the image captured by the UIImagePickerController
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
@@ -167,7 +165,6 @@ InfinteScrolls* loadingMoreView;
     [self dismissViewControllerAnimated:YES completion:nil];
 
 }
-
 
 - (void)refreshData{
     
@@ -234,9 +231,6 @@ InfinteScrolls* loadingMoreView;
     
     [self.view endEditing:true];
 }
-
-
-
 
 
 - (IBAction)didTapComment:(id)sender {
@@ -327,7 +321,7 @@ InfinteScrolls* loadingMoreView;
         int scrollViewContentHeight = self.tableView.contentSize.height;
         int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
         
-        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && !self.isDragging) {
             self.isMoreDataLoading = true;
             
             CGRect frame2 = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfinteScrolls.defaultHeight);
@@ -340,18 +334,17 @@ InfinteScrolls* loadingMoreView;
 
                 [self _loadMoreData];
             });
-            
-            
+                        
         }
     }
 }
 
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-//    self.isDragging = false;
-//}
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    self.isDragging = true;
-//}
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    self.isDragging = false;
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.isDragging = true;
+}
 
 
 #pragma mark - UITableViewDelegate
