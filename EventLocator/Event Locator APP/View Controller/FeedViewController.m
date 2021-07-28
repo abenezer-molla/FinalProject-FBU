@@ -81,6 +81,9 @@ InfinteScrolls* loadingMoreView;
                 profileView.clipsToBounds = YES;
                 profileView.userInteractionEnabled = YES;
                 
+                UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(logoutFromTapGesture)];
+                [profileView addGestureRecognizer:gestureRecognizer];
+                
                 UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
                 [profileView addSubview:imageView];
                 UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]initWithCustomView:profileView];
@@ -128,6 +131,20 @@ InfinteScrolls* loadingMoreView;
     imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self presentViewController:imagePickerVC animated:YES completion:nil];
    
+}
+
+-(void) logoutFromTapGesture{
+    
+    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
+    [loginManager logOut];
+    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    // Logging out and swtiching to login view controller
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    myDelegate.window.rootViewController = loginViewController;
+
+    
+    NSLog(@"LOGOUT TAPPED");
 }
 
 
@@ -251,9 +268,6 @@ InfinteScrolls* loadingMoreView;
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
     myDelegate.window.rootViewController = loginViewController;
     
-    FBSDKLoginManager *loginManager = [[FBSDKLoginManager alloc] init];
-    [loginManager logOut];
-     
 }
 
 - (void)loginButtonDidLogOut:(nonnull FBSDKLoginButton *)loginButton {

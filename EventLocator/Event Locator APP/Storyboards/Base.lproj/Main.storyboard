@@ -554,18 +554,16 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="mEr-we-a9x">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Logout" id="AjY-wG-hiJ">
-                                <connections>
-                                    <action selector="logoutTapped:" destination="doK-rm-WGX" id="7YI-fe-BGK"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Item" image="square.and.pencil" catalog="system" id="lmb-IW-VTJ">
-                                <connections>
-                                    <segue destination="FoK-hY-KWu" kind="presentation" identifier="composeSegue" id="wIV-km-N6O"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="AjY-wG-hiJ">
+                            <connections>
+                                <action selector="logoutTapped:" destination="doK-rm-WGX" id="7YI-fe-BGK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="lmb-IW-VTJ">
+                            <connections>
+                                <segue destination="FoK-hY-KWu" kind="presentation" identifier="composeSegue" id="wIV-km-N6O"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="XKB-0n-yr1" id="AcD-Fz-2g0"/>
