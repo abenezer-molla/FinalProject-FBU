@@ -67,6 +67,7 @@
     [self updateLikeButton];
 }
 
+
 -(void)updateLikeButton{
     if (self.likeButton.selected == true){
         self.likeButton.tintColor = UIColor.redColor;
@@ -77,40 +78,8 @@
     }
 }
 
+
 - (IBAction)didTapLikeButton:(id)sender {
-    
-    if([FBSDKAccessToken currentAccessToken]){
-        
-        FBSDKAccessToken *userID = [FBSDKAccessToken currentAccessToken];
-        //PFUser * userID = [PFUser currentUser];
-        if(self.likeButton.selected){
-            self.likeButton.selected = false;
-            [self.likeButton setSelected:NO];
-            [Post unlikePost:_post withUser:userID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-                if(succeeded){
-                    NSLog(@"Yay");
-                } else{
-                    NSLog(@"Nope");
-                }
-            }];
-            [self updateLikeButton];
-            
-        } else if(!self.likeButton.selected) {
-            self.likeButton.selected = true;
-            [self.likeButton setSelected:YES];
-            [Post like:_post withUser:userID withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-                if(succeeded){
-                    NSLog(@"Yay");
-                } else{
-                    NSLog(@"Nope");
-                }
-            }];
-            
-            [self updateLikeButton];
-        }
-               
-               
-    } else{
         
         PFUser * user = [PFUser currentUser];
         if(self.likeButton.selected){
@@ -123,6 +92,7 @@
                     NSLog(@"Nope");
                 }
             }];
+            
             [self updateLikeButton];
             
         } else if(!self.likeButton.selected) {
@@ -140,9 +110,6 @@
 
         }
                
-    }
-    
-
     self.likeCountFeed.text = [NSString stringWithFormat:@"%@", self.post.likeCount];
 }
 

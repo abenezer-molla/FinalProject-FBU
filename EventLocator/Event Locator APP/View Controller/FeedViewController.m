@@ -233,13 +233,6 @@ InfinteScrolls* loadingMoreView;
 }
 
 
-- (IBAction)didTapComment:(id)sender {
-    
-    NSLog(@"Commented!");
-    
-}
-
-
 - (IBAction)logoutTapped:(id)sender {
    
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
@@ -339,6 +332,7 @@ InfinteScrolls* loadingMoreView;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     self.isDragging = false;
 }
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.isDragging = true;
 }

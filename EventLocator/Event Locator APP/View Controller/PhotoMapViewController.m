@@ -47,8 +47,7 @@
 
     UIImageView *imageView = (UIImageView*)annotationView.leftCalloutAccessoryView;
     // imageView.image = [UIImage imageNamed:@"camera-icon"]; // remove this line
-
-    // add these two lines below
+    
     PhotoAnnotation *photoAnnotationItem = annotation; // refer to this generic annotation as our more specific PhotoAnnotation
     imageView.image = photoAnnotationItem.photo; // set the image into the callout imageview
     return annotationView;

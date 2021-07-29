@@ -160,6 +160,7 @@ InfinteScrolls* loadingMoreView2;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+    
     self.skipCount2++;
 }
 
@@ -192,6 +193,7 @@ InfinteScrolls* loadingMoreView2;
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     self.isDragging = false;
 }
+
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.isDragging = true;
 }

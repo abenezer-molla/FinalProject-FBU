@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @class LocationsViewController; // added this line to avoid the "Expected a type.
-
 @protocol LocationsViewControllerDelegate
 
 - (void)locationsViewController:(LocationsViewController *)controller didPickLocationWithLatitude:(NSNumber *)latitude longitude:(NSNumber *)longitude;

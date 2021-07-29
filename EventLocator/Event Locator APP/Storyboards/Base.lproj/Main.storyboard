@@ -465,10 +465,6 @@
                                                         <color key="titleColor" red="0.024276614912905229" green="0.0" blue="0.80995315313339233" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="titleShadowColor" red="0.80995315313339233" green="0.34542759331588424" blue="0.56807590660328477" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="didTapComment:" destination="doK-rm-WGX" eventType="touchUpInside" id="IWk-qb-u8V"/>
-                                                        <segue destination="fiv-vd-KVc" kind="show" identifier="commentSegue" id="aIa-kX-Lpi"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqp-vG-BiT">
                                                     <rect key="frame" x="337" y="222" width="20" height="22"/>
@@ -621,7 +617,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vz3-61-i6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357" y="828"/>
+            <point key="canvasLocation" x="635" y="820"/>
         </scene>
         <!--Post Page-->
         <scene sceneID="ppH-ga-Ajx">

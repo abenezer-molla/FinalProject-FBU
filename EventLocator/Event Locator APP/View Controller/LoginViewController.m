@@ -3,20 +3,18 @@
 //  Event Locator APP
 //
 //  Created by abenezermolla on 7/13/21.
-//
-
 
 
 #import "LoginViewController.h"
 #import <ChameleonFramework/Chameleon.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKProfile.h>
 #import "Parse/Parse.h"
 
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameLogin;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLogin;
-
 @property(weak, nonatomic) NSArray *colors;
 
 @end
@@ -91,9 +89,7 @@
     PFUser *newUser = [PFUser user];
     // set user properties
     newUser.username = self.usernameLogin.text;
-    //newUser.email = self.usernameField.text;
     newUser.password = self.passwordLogin.text;
-    
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
@@ -123,20 +119,75 @@
     }];
 }
 
+- (void)loginUserFB {
+
+    [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile * _Nullable profile, NSError * _Nullable error) {
+        if (profile) {
+            NSString *username = profile.firstName;
+            NSString *password = profile.firstName;
+            // call login function on the object
+            [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+                if (error != nil) {
+                    NSLog(@"User log in failed: %@", error.localizedDescription);
+                } else {
+                    NSLog(@"User logged in successfully");
+                    [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+                    
+                    // display view controller that needs to shown after successful login
+                }
+            }];
+        }
+
+    }];
+    
+}
+
 
 - (void)loginButton:(nonnull FBSDKLoginButton *)loginButton didCompleteWithResult:(nullable FBSDKLoginManagerLoginResult *)result error:(nullable NSError *)error {
+       
     if (error != nil) {
         NSLog(@"User log in failed: %@", error.localizedDescription);
     } else {
-        NSLog(@"User logged in successfully");
-        [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+        FBSDKLoginManager *loginManager = [FBSDKLoginManager new];
+            [loginManager logInWithPermissions:@[@"public_profile", @"email"]
+                            fromViewController:self
+                                       handler:^(FBSDKLoginManagerLoginResult *_Nullable result, NSError *_Nullable error){
+                if (error == nil && !result.isCancelled) {
+                    
+                        [FBSDKProfile loadCurrentProfileWithCompletion:^(FBSDKProfile * _Nullable profile, NSError * _Nullable error) {
+                            if (profile) {
+                                PFUser *newUser = [PFUser user];
+                                // set user properties
+                                newUser.username = profile.firstName;
+                                newUser.password = profile.firstName;
+                                // call sign up function on the object
+                                [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+                                    if (error != nil) {
+                                        NSLog(@"Error: %@", error.localizedDescription);
+                                        [self loginUserFB];
+                                    } else {
+                                        NSLog(@"User registered successfully");
+                            }
+                            
+                        }];
+                        }
+                    
+                    }];
+                    
+                }}];
+            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+             
+                        
+        }
+
     }
-    
-}
+            
 
 - (void)loginButtonDidLogOut:(nonnull FBSDKLoginButton *)loginButton {
-    
+
 }
 
-@end
 
+            
+@end
+            
