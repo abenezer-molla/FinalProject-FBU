@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		293349C2269F712F006E0327 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293349C1269F712F006E0327 /* ComposeViewController.m */; };
 		293349C5269F7378006E0327 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 293349C4269F7377006E0327 /* Post.m */; };
-		2988C25326B1E84F00BFF2EF /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2988C25226B1E84F00BFF2EF /* CommentsCell.xib */; };
 		29976BD226A745C300CF2640 /* InfinteScrolls.m in Sources */ = {isa = PBXBuildFile; fileRef = 29976BD126A745C300CF2640 /* InfinteScrolls.m */; };
 		29A117D9269CE9B700702878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117D8269CE9B700702878 /* AppDelegate.m */; };
 		29A117DC269CE9B700702878 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117DB269CE9B700702878 /* SceneDelegate.m */; };
@@ -59,7 +58,6 @@
 		293349C1269F712F006E0327 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		293349C3269F7377006E0327 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		293349C4269F7377006E0327 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
-		2988C25226B1E84F00BFF2EF /* CommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
 		29976BD026A745C300CF2640 /* InfinteScrolls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfinteScrolls.h; sourceTree = "<group>"; };
 		29976BD126A745C300CF2640 /* InfinteScrolls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfinteScrolls.m; sourceTree = "<group>"; };
 		29A117D4269CE9B700702878 /* Event Locator APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Locator APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,7 +170,6 @@
 				29A1181F269E1CA900702878 /* ChatCell.m */,
 				29A1180F269E17C900702878 /* FeedCell.h */,
 				29A11810269E17C900702878 /* FeedCell.m */,
-				2988C25226B1E84F00BFF2EF /* CommentsCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,7 +391,6 @@
 				29A117E7269CE9B800702878 /* LaunchScreen.storyboard in Resources */,
 				29A117E4269CE9B800702878 /* Assets.xcassets in Resources */,
 				29A117E2269CE9B700702878 /* Main.storyboard in Resources */,
-				2988C25326B1E84F00BFF2EF /* CommentsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

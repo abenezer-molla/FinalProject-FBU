@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)like: (Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion: (PFBooleanResultBlock) completion;
 
++ (void) postUserComment: ( NSString * _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+
 + (void)unlikePost:(Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion:(PFBooleanResultBlock) completion;
 
 @end

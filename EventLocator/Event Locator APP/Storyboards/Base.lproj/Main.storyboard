@@ -35,6 +35,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="usernameUpdated:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="o20-0z-6Ie"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMc-ub-WBO">
                                 <rect key="frame" x="52" y="289" width="229" height="28"/>
@@ -48,6 +51,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="passwordUpdated:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="TyC-LZ-a0w"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hf-zT-8dF">
                                 <rect key="frame" x="20" y="678" width="244" height="21"/>
@@ -86,6 +92,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bell.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vrk-fV-JIx">
+                                <rect key="frame" x="150" y="523" width="91" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -95,6 +105,7 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="bellImage" destination="vrk-fV-JIx" id="D1w-wU-l6n"/>
                         <outlet property="passwordLogin" destination="qWt-Lw-ZRM" id="LOS-9N-ntK"/>
                         <outlet property="usernameLogin" destination="QWs-da-84d" id="Pdd-CP-WLV"/>
                         <segue destination="GzV-B2-wt3" kind="presentation" identifier="loginSegue" id="QJc-kc-g8f"/>
@@ -465,6 +476,9 @@
                                                         <color key="titleColor" red="0.024276614912905229" green="0.0" blue="0.80995315313339233" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <color key="titleShadowColor" red="0.80995315313339233" green="0.34542759331588424" blue="0.56807590660328477" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <connections>
+                                                        <segue destination="E2J-b7-3uR" kind="presentation" id="PGO-Dc-LPg"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vqp-vG-BiT">
                                                     <rect key="frame" x="337" y="222" width="20" height="22"/>
@@ -575,6 +589,50 @@
             </objects>
             <point key="canvasLocation" x="634.78260869565224" y="99.776785714285708"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="HLE-9p-CNa">
+            <objects>
+                <viewController id="6tu-sw-ii4" customClass="CommentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BHq-iR-42Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hf-cT-Zjh">
+                                <rect key="frame" x="42" y="95" width="55" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancle" image="xmark.rectangle" catalog="system"/>
+                                <connections>
+                                    <action selector="cancleCommentDraft:" destination="6tu-sw-ii4" eventType="touchUpInside" id="HwC-6q-iOw"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbt-gN-Xcj">
+                                <rect key="frame" x="307" y="95" width="46" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button" image="paperplane.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="postComment:" destination="6tu-sw-ii4" eventType="touchUpInside" id="2yM-YL-NHX"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dm6-cX-Oga">
+                                <rect key="frame" x="42" y="169" width="311" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qqm-Ky-khB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Btd-l1-1pv"/>
+                    <connections>
+                        <outlet property="commentToShare" destination="Dm6-cX-Oga" id="s4c-IF-gw9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTf-vC-BD7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182.608695652174" y="979.6875"/>
+        </scene>
         <!--Compose Comment View Controller-->
         <scene sceneID="0RP-lh-a2v">
             <objects>
@@ -617,7 +675,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vz3-61-i6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="820"/>
+            <point key="canvasLocation" x="-504" y="856"/>
         </scene>
         <!--Post Page-->
         <scene sceneID="ppH-ga-Ajx">
@@ -745,8 +803,27 @@
             </objects>
             <point key="canvasLocation" x="3714" y="-1590"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YNs-uL-guK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E2J-b7-3uR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7LL-cW-ox7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6tu-sw-ii4" kind="relationship" relationship="rootViewController" id="EbG-cs-Ml9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b4c-mI-oag" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="635" y="980"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bell.fill" catalog="system" width="128" height="124"/>
         <image name="blue_to_purp" width="1000" height="700"/>
         <image name="camera-l" width="128" height="128"/>
         <image name="hand.tap" catalog="system" width="113" height="128"/>
@@ -764,6 +841,7 @@
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="wand.and.rays" catalog="system" width="128" height="121"/>
+        <image name="xmark.rectangle" catalog="system" width="128" height="93"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *usernameLogin;
 @property (weak, nonatomic) IBOutlet UITextField *passwordLogin;
 @property(weak, nonatomic) NSArray *colors;
+@property (weak, nonatomic) IBOutlet UIImageView *bellImage;
 
 @end
 
@@ -80,7 +81,6 @@
         }];
     }
     
-    
 }
 
 
@@ -100,6 +100,28 @@
             // manually segue to logged in view
         }
     }];
+}
+
+- (IBAction)usernameUpdated:(id)sender {
+    
+    if(self.usernameLogin.text.length==0){
+        [self hideLables];
+    } else{
+        
+        [self showLables];
+    }
+}
+
+- (IBAction)passwordUpdated:(id)sender {
+    
+    if(self.usernameLogin.text.length==0){
+        [self hideLables];
+    } else{
+        
+        [self showLables];
+    }
+    
+    
 }
 
 
@@ -176,8 +198,7 @@
                     
                 }}];
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-             
-                        
+                                     
         }
 
     }
@@ -185,6 +206,50 @@
 
 - (void)loginButtonDidLogOut:(nonnull FBSDKLoginButton *)loginButton {
 
+}
+
+
+
+-(void) hideLables{
+
+    [UIView animateWithDuration:0.5 animations:^{
+        
+     CGRect passwordFrame  = self.bellImage.frame;
+       
+        passwordFrame.origin.y+=15;
+             
+        self.bellImage.frame = passwordFrame;
+         
+        CGRect usernameFrame = self.bellImage.frame;
+         
+        usernameFrame.origin.y +=15;
+         
+        self.bellImage.frame = usernameFrame;
+               
+    }];
+    
+}
+    
+
+-(void) showLables{
+    
+    [UIView animateWithDuration:0.5 animations:^{
+                
+        CGRect passwordFrame  = self.bellImage.frame;
+          
+        passwordFrame.origin.y -= 10 ;
+             
+        self.bellImage.frame = passwordFrame;
+         
+        CGRect usernameFrame = self.bellImage.frame;
+         
+        usernameFrame.origin.y -=10;
+         
+        self.bellImage.frame = usernameFrame;
+        
+              
+    }];
+    
 }
 
 

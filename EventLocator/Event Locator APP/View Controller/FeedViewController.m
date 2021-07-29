@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSDate *_Nullable dateOfLastLoadedPost;
 @property (weak, nonatomic) IBOutlet UIImageView *toSaveTheProfilePic;
 
+
 @end
 
 @implementation FeedViewController
