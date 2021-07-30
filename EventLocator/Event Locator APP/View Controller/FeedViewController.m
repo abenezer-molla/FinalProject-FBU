@@ -195,8 +195,7 @@ InfinteScrolls* loadingMoreView;
             [self.refreshControl endRefreshing];
         }
         else {
-            // handle error
-            
+            // handle error            
             NSLog(@"%@", error.localizedDescription);
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Network"
                                                                                        message:@"Please connect your device to a network source and try again."
@@ -254,7 +253,6 @@ InfinteScrolls* loadingMoreView;
 - (void)_loadMoreData {
    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    //NSDate *now = [NSDate now];
     if (self.dateOfLastLoadedPost != nil) {
         [query whereKey:@"createdAt" lessThan:self.dateOfLastLoadedPost];
     }
@@ -277,7 +275,7 @@ InfinteScrolls* loadingMoreView;
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Network"
                                                                                        message:@"Please connect your device to a network source and try again."
                                                                                 preferredStyle:(UIAlertControllerStyleAlert)];
-            // create a cancel action
+            // create a cancle action
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancle"
                                                                 style:UIAlertActionStyleCancel
                                                               handler:^(UIAlertAction * _Nonnull action) {

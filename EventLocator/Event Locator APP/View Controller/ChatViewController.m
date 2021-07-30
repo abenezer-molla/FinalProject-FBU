@@ -65,11 +65,13 @@ InfinteScrolls* loadingMoreView2;
     
 }
 
+
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
     
     [self refreshData2];
 
 }
+
 
 - (IBAction)didTapSend:(id)sender {
     
@@ -89,6 +91,7 @@ InfinteScrolls* loadingMoreView2;
     self.chatTitleText.text = @"";
     
 }
+
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     if (searchText.length != 0) {
@@ -116,14 +119,15 @@ InfinteScrolls* loadingMoreView2;
     [query includeKey:@"createdAt"];
     query.limit = 5;
     [query orderByDescending:@"createdAt"];
+    [self.tableViewChat reloadData];
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
+    [query findObjectsInBackgroundWithBlock:^(NSArray *chatsArray, NSError *error) {
+        if (chatsArray != nil) {
             // do something with the array of object returned by the call
-            self.chats = posts;
+            self.chats = chatsArray;
             self.filteredChats = self.chats;
             if (self.filteredChats.count > 0) {
-                self.dateOfLastLoadedPost = ((Post*) posts[posts.count - 1]).createdAt;
+                self.dateOfLastLoadedPost = ((Chat*) chatsArray[chatsArray.count - 1]).createdAt;
             }
             [self.tableViewChat reloadData];
             [self.refreshControl endRefreshing];
@@ -131,8 +135,9 @@ InfinteScrolls* loadingMoreView2;
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-        
+    
     [self.tableViewChat reloadData];
+        
 }
 
 
@@ -147,13 +152,11 @@ InfinteScrolls* loadingMoreView2;
     query.limit = 5* self.skipCount2;
     [query orderByDescending:@"createdAt"];
     // fetch data asynchronously
-    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
-        if (posts != nil) {
-            NSLog(@"Total elements in the array :  %lu", (unsigned long)self.chats.count);
+    [query findObjectsInBackgroundWithBlock:^(NSArray *chatsArray, NSError *error) {
+        if (chatsArray != nil) {
             // do something with the array of object returned by the call
             self.isMoreDataLoading2 = false;
-            NSLog(@"%@", posts[posts.count-1]);
-            self.chats = (NSMutableArray*)posts;
+            self.chats = (NSMutableArray*)chatsArray;
             self.filteredChats = self.chats;
             [self.tableViewChat reloadData];
         } else {
@@ -181,7 +184,6 @@ InfinteScrolls* loadingMoreView2;
             NSTimeInterval delayInSeconds = 0.1;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-              NSLog(@"Do some work");
                 [self _loadMoreData];
                 
             });
@@ -189,6 +191,8 @@ InfinteScrolls* loadingMoreView2;
         }
     }
 }
+
+
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     self.isDragging = false;
@@ -201,19 +205,13 @@ InfinteScrolls* loadingMoreView2;
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    ChatCell *chatCell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
-    chatCell.layer.cornerRadius = 35;
-    chatCell.clipsToBounds = true;
-
-    chatCell.chatTextLabel.text = self.filteredChats[indexPath.row][@"text"];
-    chatCell.chatTitle.text = self.filteredChats[indexPath.row][@"title"];
-
-    if(self.chats[indexPath.row][@"user"] != nil){
-        chatCell.chatPageUsername.text = self.filteredChats[indexPath.row][@"user"][@"username"];
-    }else{
-        chatCell.chatPageUsername.text = @"Anon";
-    }    
-    return chatCell;
+    ChatCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatCell"];
+    cell.layer.cornerRadius = 35;
+    cell.clipsToBounds = true;
+    Chat *chat = self.filteredChats[indexPath.row];
+    [cell setChat:chat];
+    cell.chat = self.filteredChats[indexPath.row];
+    return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

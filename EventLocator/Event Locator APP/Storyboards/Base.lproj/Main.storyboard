@@ -331,6 +331,13 @@
                                                     <rect key="frame" x="0.0" y="121" width="414" height="9"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTb-gk-HTu">
+                                                    <rect key="frame" x="283" y="40" width="55" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -339,6 +346,7 @@
                                             <outlet property="chatTextLabel" destination="eMP-0O-6nq" id="drl-UZ-YBi"/>
                                             <outlet property="chatTitle" destination="Wfc-5T-4JF" id="7gi-vK-4gH"/>
                                             <outlet property="likeButtonChat" destination="7qt-b4-fbM" id="kj9-ON-5c5"/>
+                                            <outlet property="likeCountChat" destination="PTb-gk-HTu" id="kQq-GI-cxr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

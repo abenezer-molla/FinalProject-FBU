@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		293349C2269F712F006E0327 /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 293349C1269F712F006E0327 /* ComposeViewController.m */; };
 		293349C5269F7378006E0327 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 293349C4269F7377006E0327 /* Post.m */; };
+		29565AB026B49D35007B1AA6 /* Chat.m in Sources */ = {isa = PBXBuildFile; fileRef = 29565AAF26B49D35007B1AA6 /* Chat.m */; };
 		29976BD226A745C300CF2640 /* InfinteScrolls.m in Sources */ = {isa = PBXBuildFile; fileRef = 29976BD126A745C300CF2640 /* InfinteScrolls.m */; };
 		29A117D9269CE9B700702878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117D8269CE9B700702878 /* AppDelegate.m */; };
 		29A117DC269CE9B700702878 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A117DB269CE9B700702878 /* SceneDelegate.m */; };
@@ -58,6 +59,8 @@
 		293349C1269F712F006E0327 /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
 		293349C3269F7377006E0327 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		293349C4269F7377006E0327 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		29565AAE26B49D35007B1AA6 /* Chat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chat.h; sourceTree = "<group>"; };
+		29565AAF26B49D35007B1AA6 /* Chat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chat.m; sourceTree = "<group>"; };
 		29976BD026A745C300CF2640 /* InfinteScrolls.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfinteScrolls.h; sourceTree = "<group>"; };
 		29976BD126A745C300CF2640 /* InfinteScrolls.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfinteScrolls.m; sourceTree = "<group>"; };
 		29A117D4269CE9B700702878 /* Event Locator APP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Event Locator APP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +160,8 @@
 				29976BD126A745C300CF2640 /* InfinteScrolls.m */,
 				293349C3269F7377006E0327 /* Post.h */,
 				293349C4269F7377006E0327 /* Post.m */,
+				29565AAE26B49D35007B1AA6 /* Chat.h */,
+				29565AAF26B49D35007B1AA6 /* Chat.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -521,6 +526,7 @@
 				29DD973426A0EA7200D4A526 /* LocationTagViewController.m in Sources */,
 				29A11823269E617900702878 /* LoginViewController.m in Sources */,
 				29DD973726A0EC5900D4A526 /* LocationCell.m in Sources */,
+				29565AB026B49D35007B1AA6 /* Chat.m in Sources */,
 				29A11811269E17C900702878 /* FeedCell.m in Sources */,
 				29DD973C26A0F1ED00D4A526 /* PhotoAnnotation.m in Sources */,
 				29A11820269E1CA900702878 /* ChatCell.m in Sources */,
