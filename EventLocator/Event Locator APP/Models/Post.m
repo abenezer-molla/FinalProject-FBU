@@ -11,15 +11,12 @@
 
 @implementation Post
 
-
-
 @dynamic postID;
 @dynamic userID;
 @dynamic author;
 @dynamic caption;
 @dynamic image;
 @dynamic likeCount;
-@dynamic commentCount;
 @dynamic likedByUsername;
 @dynamic imageProfile;
 @dynamic likeRelation;
@@ -35,24 +32,10 @@ return @"Post";
     newPost.author = [PFUser currentUser];
     newPost.caption = caption;
     newPost.likeCount = @(0);
-    newPost.commentCount = @(0);
-
     [newPost saveInBackgroundWithBlock: completion];
 
 }
 
-
-+ (void) postUserComment: ( NSString * _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-
-    Post *newPost = [Post new];
-    newPost.author = [PFUser currentUser];
-    newPost.likeCount = @(0);
-    newPost.caption = text;
-    newPost.commentCount = @(0);
-
-    [newPost saveInBackgroundWithBlock: completion];
-
-}
 
 
 + (void) postUserProfileImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion {

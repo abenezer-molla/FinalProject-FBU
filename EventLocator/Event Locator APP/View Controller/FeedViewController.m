@@ -14,6 +14,7 @@
 #import "Parse/Parse.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "composeCommentViewController.h"
 #import "InfinteScrolls.h"
 #import <FBSDKCoreKit/FBSDKProfile.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -30,6 +31,7 @@
 @property (assign, nonatomic) BOOL isDragging;
 @property (strong, nonatomic) NSDate *_Nullable dateOfLastLoadedPost;
 @property (weak, nonatomic) IBOutlet UIImageView *toSaveTheProfilePic;
+
 
 
 @end
@@ -250,6 +252,7 @@ InfinteScrolls* loadingMoreView;
     
 }
 
+
 - (void)_loadMoreData {
    
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
@@ -337,17 +340,29 @@ InfinteScrolls* loadingMoreView;
 }
 
 
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"toComment"]) {
+        Post *post = (Post *) sender;
+        composeCommentViewController *destinationController = [segue destinationViewController];
+        destinationController.post = post;
+    }
+}
+
+
 #pragma mark - UITableViewDelegate
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
  
     FeedCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FeedCell"];
+    //NSLog(@" THE CELL :  %@", cell);
     cell.layer.cornerRadius = 35; // uses external library
     cell.clipsToBounds = true;
     Post *post = self.feeds[indexPath.row];
     [cell setPost:post];
     cell.post = self.feeds[indexPath.row];
-    
+    cell.didTapComment = ^(Post *post) {[self performSegueWithIdentifier:@"toComment" sender:post];};
     return cell;
         
 }
@@ -355,6 +370,10 @@ InfinteScrolls* loadingMoreView;
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.feeds.count;
 }
+
+
+
+
 
 
 @end

@@ -29,6 +29,14 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)didTapComment:(id)sender {
+    
+    if(self.didTapComment){
+        
+        self.didTapComment(self.post);
+    }
+}
+
 - (void)setPost:(Post *)post {
 
     _post = post;

@@ -18,7 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFFileObject *image;
 @property (nonatomic, strong) PFFileObject *imageProfile;
 @property (nonatomic, strong) NSNumber *likeCount;
-@property (nonatomic, strong) NSNumber *commentCount;
 @property (nonatomic, strong) NSMutableArray *likedByUsername;
 
 @property (nonatomic, strong) PFRelation *likeRelation;
@@ -28,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) postUserProfileImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void)like: (Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion: (PFBooleanResultBlock) completion;
-
-+ (void) postUserComment: ( NSString * _Nullable )text withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
 + (void)unlikePost:(Post * _Nullable)post withUser:(PFUser * _Nullable)user withCompletion:(PFBooleanResultBlock) completion;
 

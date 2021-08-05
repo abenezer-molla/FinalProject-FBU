@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) FeedCell *feedcell;
 
+@property (nonatomic, copy, nonnull) void (^didTapComment)(Post *post);
 @property (strong, nonatomic) Post *post;
 
 @end
