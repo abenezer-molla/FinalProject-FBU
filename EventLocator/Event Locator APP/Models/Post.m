@@ -21,6 +21,7 @@
 @dynamic imageProfile;
 @dynamic likeRelation;
 
+
 + (nonnull NSString *)parseClassName {
 return @"Post";
 }
@@ -35,7 +36,6 @@ return @"Post";
     [newPost saveInBackgroundWithBlock: completion];
 
 }
-
 
 
 + (void) postUserProfileImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion {

@@ -46,7 +46,7 @@
     PFUser *user = comment.author;
     NSLog(@"USERRRRRRR%@", user);
     
-    if(comment.author){
+    if(comment.author.username){
         self.commentUsername.text = comment.author.username;
     } else{
         self.commentUsername.text = @"Anonymous";

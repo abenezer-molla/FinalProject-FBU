@@ -40,7 +40,8 @@ InfinteScrolls* loadingMoreView2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableViewChat.backgroundColor = FlatGray;
+    self.view.backgroundColor = FlatPurple;
+    self.tableViewChat.backgroundColor = RandomFlatColor;
     RandomFlatColorWithShade(UIShadeStyleLight);
     
     self.tableViewChat.dataSource = self;
@@ -76,17 +77,23 @@ InfinteScrolls* loadingMoreView2;
 - (IBAction)didTapSend:(id)sender {
     
     PFObject *chatMessage = [PFObject objectWithClassName:@"Chats"];
-    chatMessage[@"text"] = self.composeChatText.text;
-    chatMessage[@"title"] = self.chatTitleText.text;
-    chatMessage[@"user"] = PFUser.currentUser;
     
-    [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
-        if (succeeded) {
-            NSLog(@"The message was saved!");
-        } else {
-            NSLog(@"Problem saving message: %@", error.localizedDescription);
-        }
-    }];
+    if (![self.composeChatText.text isEqual:@""] && ![self.chatTitleText.text  isEqual: @""]){
+        chatMessage[@"text"] = self.composeChatText.text;
+        chatMessage[@"title"] = self.chatTitleText.text;
+        chatMessage[@"user"] = PFUser.currentUser;
+        [chatMessage saveInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (succeeded) {
+                NSLog(@"The message was saved!");
+            } else {
+                NSLog(@"Problem saving message: %@", error.localizedDescription);
+            }
+        }];
+    } else{
+        
+        return;
+    }
+
     self.composeChatText.text = @"";
     self.chatTitleText.text = @"";
     
@@ -191,7 +198,6 @@ InfinteScrolls* loadingMoreView2;
         }
     }
 }
-
 
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {

@@ -44,9 +44,9 @@ InfinteScrolls* loadingMoreView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.tableView.backgroundColor = FlatGray;
-    
+    self.view.backgroundColor = RandomFlatColor;
+    RandomFlatColorWithShade(UIShadeStyleLight);
+    self.tableView.backgroundColor = RandomFlatColor;
     RandomFlatColorWithShade(UIShadeStyleLight);
     
     self.tableView.dataSource = self;

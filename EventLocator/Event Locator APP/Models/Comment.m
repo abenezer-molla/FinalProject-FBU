@@ -27,6 +27,7 @@ return @"Comments";
 + (void) postUserComment:( NSString * _Nullable )text post:(Post *) post withCompletion: (PFBooleanResultBlock  _Nullable)completion {
 
     Comment *newComment = [Comment new];
+    newComment.author = [PFUser currentUser];
     newComment.commentCount = @(0);
     newComment.likeCount = @(0);
     newComment.post = post;

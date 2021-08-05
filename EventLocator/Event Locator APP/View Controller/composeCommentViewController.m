@@ -23,7 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.commentTableView.backgroundColor = FlatGray;
+    self.commentTableView.backgroundColor = RandomFlatColor;
+    RandomFlatColorWithShade(UIShadeStyleLight);
     // Do any additional setup after loading the view.
     self.commentTableView.dataSource = self;
     self.commentTableView.delegate = self;
@@ -51,11 +52,6 @@
 
 
 - (IBAction)cancleComment:(id)sender {
-    
-    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
-        // PFUser.current() will now be nil
-    }];
-    
     SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
         // Logging out and swtiching to login view controller
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -79,13 +75,7 @@
             NSLog(@"Nope");
         }
     }];
-    SceneDelegate *myDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-        // Logging out and swtiching to login view controller
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    FeedViewController *feedViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
-        myDelegate.window.rootViewController = feedViewController;
-    
-    
+    self.commentToShare.text = @"";
 }
 
 
